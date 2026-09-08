@@ -604,6 +604,7 @@
       <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
       <li><a href="#education"><i class="fa-regular fa-graduation-cap"></i> Education</a></li>
       <li><a href="#awards"><i class="fa-regular fa-star"></i> Awards</a></li>
+      <li><a href="#volunteering"><i class="fa-solid fa-hand-holding-heart"></i> Volunteering</a></li>
     </ul>
   </nav>
 
@@ -633,7 +634,7 @@
 
     <p class="about-bio">
       Highly skilled software engineer with 7+ years of experience delivering impactful solutions at Workday, Amazon, and Darwinbox. My expertise spans zero-loss database migrations, scalable backend systems, cloud infrastructure, API design, and production safety guardrails.<br><br>
-      I also publish open-source tools and research — including the <strong>gumo</strong> npm package (web-crawler &amp; scraper) and peer-reviewed papers on computer vision, hashing algorithms, and smart-city systems.
+      I also publish open-source tools and research — including the <strong>gumo</strong> npm package (web-crawler &amp; scraper) and peer-reviewed papers on software architecture, computer vision, and hashing algorithms.
     </p>
 
     <div class="stat-row">
@@ -642,7 +643,7 @@
         <div class="stat-lbl">Years Experience</div>
       </div>
       <div class="stat-box">
-        <div class="stat-num">3</div>
+        <div class="stat-num">4</div>
         <div class="stat-lbl">Research Papers</div>
       </div>
       <div class="stat-box">
@@ -655,7 +656,7 @@
       </div>
     </div>
 
-    <a class="btn-primary-outline" href="N_V_K_Chaitanya_Resume.pdf" download>
+    <a class="btn-primary-outline" href="N_V_K_Chaitanya_Resume.pdf?v=2026-09" download="N_V_K_Chaitanya_Resume.pdf">
       <i class="fa-solid fa-download"></i> Download Resume
     </a>
   </section>
@@ -675,10 +676,12 @@
         <div class="exp-company">Workday</div>
         <div class="exp-role">Software Development Engineer</div>
         <ul class="exp-bullets">
-          <li><strong>Zero-Loss DB Migrations Framework:</strong> Designed a framework enabling developers to perform database migrations and rollbacks with zero data loss, increasing system reliability and deployment confidence across services.</li>
-          <li><strong>Automated Rollback Execution:</strong> Developed recovery tooling that triggers immediate rollback workflows on failed migrations, cutting recovery time from hours to minutes.</li>
-          <li><strong>Change Safety Guardrails:</strong> Built verification and compliance checks to ensure schema consistency and backward compatibility, reducing critical production incident risk by <strong>40%</strong>.</li>
-          <li><strong>Developer Enablement:</strong> Standardized migration templates enabling <strong>100+ developers</strong> to adopt a consistent deployment model across microservices.</li>
+          <li><strong>CI/CD REST API Platform:</strong> Designed and shipped production <strong>/api/v2</strong> endpoints — revision sessions, conflict detection, audit reporting, IA bypass, and push-to-master — across <strong>36 merged PRs</strong>, extending the UI-only platform to programmatic service integrations. Now serves <strong>~1.1M UI + API requests / 30 days</strong> (~201K programmatic) in production.</li>
+          <li><strong>Service-to-Service Authentication &amp; Security:</strong> Built hashed API-key auth with Quarkus security (service vs. user context separation) plus Narada Bearer support, and drove the threat model through Workday's security review — unblocking API GA with a validated auth layer covering both flows.</li>
+          <li><strong>Push-to-Master &amp; Merge-When-Ready Hardening:</strong> Shipped PCQ client-credential auth, push cancellation, and automatic IA-bypass; standardized typed <strong>422/503</strong> error codes with EMF metrics and CloudWatch dashboards/alarms, replacing generic 500s with named, observable failure modes for on-call.</li>
+          <li><strong>Distributed Tracing Across the Pipeline:</strong> Implemented end-to-end <strong>X-Trace-ID</strong> propagation from Coffeehouse through CRS, Panda, and XORC to GitHub Checks, closing the epic with full cross-service trace correlation and faster root-cause on pipeline failures.</li>
+          <li><strong>Capacity Sizing &amp; Graviton Migration:</strong> Right-sized production ECS to <strong>4 vCPU / 16 GB</strong> (post-resize CPU ~1.5% mean) and authored the x86&rarr;Graviton RDS migration assessment across five service groups, filing per-instance implementation stories with projected cost savings.</li>
+          <li><strong>Async Reliability &amp; Audit Governance:</strong> Added a <strong>10-minute hard timeout</strong> to AuditReportWorkflow and built job-step tracking with an async coordinator pattern — eliminating indefinitely-hung audit jobs and giving operators step-level visibility.</li>
         </ul>
       </div>
     </div>
@@ -835,6 +838,16 @@
     <div class="pub-list">
 
       <div class="pub-card">
+        <span class="pub-badge ieee">IEEE</span>
+        <div>
+          <div class="pub-title">"Balancing Microservices and Monolithic Architectures"</div>
+          <div class="pub-meta">Nuthalapati, V.K.C. · IEEE Computer Society Santa Clara Valley Chapter · <em>Feedforward</em>, Vol. 5, No. 3, pp. 28–33 · Jul 2026</div>
+          <div class="pub-meta">Practical trade-off analysis for choosing between microservices and monolithic architectures across team size, operational maturity, and scaling needs.</div>
+          <a class="pub-link" href="https://arxiv.org/abs/2607.03898" target="_blank">arxiv.org/abs/2607.03898 ↗</a>
+        </div>
+      </div>
+
+      <div class="pub-card">
         <span class="pub-badge arxiv">arXiv</span>
         <div>
           <div class="pub-title">"Real-Time Multi-Object Detection for Helmet Safety"</div>
@@ -851,16 +864,6 @@
           <div class="pub-meta">Nuthalapati, N.V.K.C. et al. · IEEE Confluence 2018 · 8th International Conference on Cloud Computing, Data Science &amp; Engineering</div>
           <div class="pub-meta">Proposed a novel hashing technique improving collision management efficiency for scalable lookup structures.</div>
           <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/8442607" target="_blank">ieeexplore.ieee.org/abstract/document/8442607 ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <span class="pub-badge springer">Springer</span>
-        <div>
-          <div class="pub-title">"An Approach for Misleading Image Outlier Elimination for Smart City Data"</div>
-          <div class="pub-meta">Nuthalapati, V.K.C. et al. · Springer LNCS · 2018</div>
-          <div class="pub-meta">Improved data integrity and noise filtering for smart-city intelligence systems.</div>
-          <a class="pub-link" href="https://link.springer.com/chapter/10.1007/978-981-10-7868-2_24" target="_blank">link.springer.com ↗</a>
         </div>
       </div>
 
@@ -1022,6 +1025,27 @@
       <div class="award-item">
         <i class="fa-solid fa-heart award-icon"></i>
         <div class="award-text">Regular volunteer and donor for <strong>Food4Lives</strong> — community food assistance organization.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTEERING -->
+  <section id="volunteering">
+    <div class="section-label">Community</div>
+    <h2 class="section-title">Volunteering</h2>
+
+    <div class="exp-item">
+      <div class="exp-meta">
+        <div class="exp-period">Feb 2026 – Present</div>
+        <div class="exp-location">Remote · Ghana</div>
+      </div>
+      <div>
+        <div class="exp-company">Mentors Without Borders · Education</div>
+        <div class="exp-role">Instructor</div>
+        <ul class="exp-bullets">
+          <li>As part of a global initiative to bridge the digital divide, I mentor junior high school students in Ghana remotely — teaching web development and programming basics through structured weekly sessions on Zoom.</li>
+          <li>Every lesson is an opportunity to spark curiosity and open doors for the next generation of developers.</li>
+        </ul>
       </div>
     </div>
   </section>
