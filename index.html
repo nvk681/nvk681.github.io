@@ -1,1086 +1,1328 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="N.V.K. Chaitanya — Software Development Engineer at Workday. Portfolio of engineering work, research, and open source." />
-  <title>N.V.K. Chaitanya · Portfolio</title>
-  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:     #080c18;
-      --navy2:    #0e1526;
-      --navy3:    #141d35;
-      --border:   rgba(255,255,255,0.07);
-      --accent:   #1ad8b0;
-      --accent2:  #0ea5e9;
-      --text:     #e2e8f2;
-      --muted:    #7d8fa8;
-      --sidebar-w: 280px;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--navy);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      line-height: 1.7;
-    }
-
-    /* ── SIDEBAR ── */
-    #sidebar {
-      position: fixed;
-      top: 0; left: 0; bottom: 0;
-      width: var(--sidebar-w);
-      background: var(--navy2);
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      padding: 2.5rem 1.8rem;
-      z-index: 100;
-      overflow-y: auto;
-    }
-
-    .profile-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding-bottom: 2rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2rem;
-    }
-
-    .profile-img {
-      width: 96px; height: 96px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid var(--accent);
-      margin-bottom: 1rem;
-    }
-
-    .profile-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.01em;
-    }
-
-    .profile-role {
-      font-size: 0.75rem;
-      font-weight: 300;
-      color: var(--muted);
-      margin-top: 0.25rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-    }
-
-    nav ul { list-style: none; }
-    nav ul li + li { margin-top: 0.15rem; }
-    nav ul li a {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      padding: 0.5rem 0.8rem;
-      border-radius: 8px;
-      font-size: 0.82rem;
-      font-weight: 400;
-      color: var(--muted);
-      text-decoration: none;
-      letter-spacing: 0.02em;
-      transition: background 0.2s, color 0.2s;
-    }
-    nav ul li a:hover, nav ul li a.active {
-      background: rgba(26,216,176,0.1);
-      color: var(--accent);
-    }
-    nav ul li a i { font-size: 0.9rem; width: 16px; text-align: center; }
-
-    .sidebar-socials {
-      margin-top: auto;
-      padding-top: 2rem;
-      display: flex;
-      gap: 0.75rem;
-      justify-content: center;
-    }
-    .sidebar-socials a {
-      width: 34px; height: 34px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      text-decoration: none;
-      transition: border-color 0.2s, color 0.2s;
-    }
-    .sidebar-socials a:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── MAIN ── */
-    main {
-      margin-left: var(--sidebar-w);
-      min-height: 100vh;
-    }
-
-    section {
-      padding: 5rem 4rem;
-      border-bottom: 1px solid var(--border);
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    section.visible { opacity: 1; transform: none; }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 400;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.5rem;
-    }
-    .section-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 2.5rem;
-    }
-
-    /* ── ABOUT ── */
-    #about { padding-top: 6rem; }
-    .about-eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-    }
-    .about-name {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-    .about-name span { color: var(--accent); }
-    .about-subtitle {
-      font-size: 1rem;
-      color: var(--muted);
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-    }
-    .about-contact {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 2rem;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-    .about-contact a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-    .about-contact a:hover { color: var(--accent); }
-    .about-contact i { margin-right: 0.4rem; color: var(--accent); }
-
-    .about-bio {
-      max-width: 660px;
-      color: var(--muted);
-      font-size: 0.95rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
-    }
-
-    .stat-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 2.5rem;
-    }
-    .stat-box {
-      background: var(--navy3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem 1.4rem;
-      min-width: 140px;
-    }
-    .stat-num {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-    .stat-lbl {
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-top: 0.1rem;
-    }
-
-    .btn-primary-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      border: 1px solid var(--accent);
-      color: var(--accent);
-      padding: 0.6rem 1.4rem;
-      border-radius: 8px;
-      font-size: 0.82rem;
-      letter-spacing: 0.04em;
-      text-decoration: none;
-      transition: background 0.2s;
-    }
-    .btn-primary-outline:hover { background: rgba(26,216,176,0.1); }
-
-    /* ── EXPERIENCE ── */
-    .exp-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .exp-item:last-child { border-bottom: none; }
-
-    .exp-meta { text-align: right; }
-    .exp-period {
-      font-size: 0.78rem;
-      color: var(--accent);
-      font-weight: 400;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
-    .exp-location {
-      font-size: 0.72rem;
-      color: var(--muted);
-      margin-top: 0.25rem;
-    }
-
-    .exp-company {
-      font-size: 0.72rem;
-      font-weight: 400;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 0.25rem;
-    }
-    .exp-role {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 1rem;
-    }
-    .exp-bullets { list-style: none; }
-    .exp-bullets li {
-      font-size: 0.88rem;
-      color: var(--muted);
-      padding-left: 1rem;
-      position: relative;
-      margin-bottom: 0.5rem;
-    }
-    .exp-bullets li::before {
-      content: '▸';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-size: 0.65rem;
-      top: 0.3em;
-    }
-    .exp-bullets strong { color: var(--text); font-weight: 500; }
-
-    /* ── PROJECTS ── */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.25rem;
-    }
-    .project-card {
-      background: var(--navy3);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .project-card:hover { border-color: rgba(26,216,176,0.4); transform: translateY(-2px); }
-    .project-card.featured { border-color: rgba(26,216,176,0.3); }
-
-    .project-icon {
-      width: 38px; height: 38px;
-      background: rgba(26,216,176,0.12);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
-    .project-badge {
-      display: inline-block;
-      font-size: 0.65rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      background: rgba(26,216,176,0.15);
-      color: var(--accent);
-      border-radius: 4px;
-      padding: 0.2rem 0.6rem;
-      margin-bottom: 0.6rem;
-    }
-    .project-title {
-      font-family: 'Syne', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.5rem;
-    }
-    .project-desc {
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-bottom: 1rem;
-    }
-    .tag {
-      font-size: 0.7rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 0.15rem 0.5rem;
-      color: var(--muted);
-    }
-    .project-link {
-      font-size: 0.78rem;
-      color: var(--accent);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-      transition: gap 0.2s;
-    }
-    .project-link:hover { gap: 0.6rem; }
-    .project-npm-stats {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .npm-stat {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-    .npm-stat span { color: var(--accent); font-weight: 500; }
-
-    /* ── PUBLICATIONS & ARTICLES ── */
-    .pub-list { display: flex; flex-direction: column; gap: 1rem; }
-    .pub-card {
-      background: var(--navy3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      gap: 1.25rem;
-      align-items: flex-start;
-      transition: border-color 0.2s;
-    }
-    .pub-card:hover { border-color: rgba(14,165,233,0.4); }
-    .pub-badge {
-      flex-shrink: 0;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      padding: 0.35rem 0.6rem;
-      border-radius: 5px;
-      min-width: 56px;
-      text-align: center;
-    }
-    .pub-badge.arxiv { background: rgba(14,165,233,0.15); color: #38bdf8; }
-    .pub-badge.ieee  { background: rgba(59,130,246,0.15);  color: #60a5fa; }
-    .pub-badge.springer { background: rgba(139,92,246,0.15); color: #c4b5fd; }
-    .pub-title {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #fff;
-      margin-bottom: 0.3rem;
-    }
-    .pub-meta {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-bottom: 0.4rem;
-    }
-    .pub-link {
-      font-size: 0.75rem;
-      color: var(--accent2);
-      text-decoration: none;
-    }
-    .pub-link:hover { text-decoration: underline; }
-
-    .article-card {
-      background: var(--navy3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem 1.5rem;
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .article-card:hover { border-color: rgba(250,204,21,0.3); transform: translateX(3px); }
-    .article-icon {
-      flex-shrink: 0;
-      width: 36px; height: 36px;
-      background: rgba(250,204,21,0.1);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      color: #fbbf24;
-      font-size: 0.9rem;
-    }
-    .article-source {
-      font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #fbbf24;
-      margin-bottom: 0.25rem;
-    }
-    .article-title {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #fff;
-      margin-bottom: 0.4rem;
-      line-height: 1.45;
-    }
-    .article-link {
-      font-size: 0.75rem;
-      color: var(--muted);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .article-link:hover { color: var(--accent); }
-
-    /* ── SKILLS ── */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 1rem;
-    }
-    .skill-group {
-      background: var(--navy3);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1.25rem;
-    }
-    .skill-group-title {
-      font-size: 0.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.75rem;
-      font-weight: 400;
-    }
-    .skill-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-    .pill {
-      font-size: 0.75rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 0.2rem 0.65rem;
-      color: var(--text);
-    }
-
-    /* ── EDUCATION ── */
-    .edu-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 2rem;
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .edu-item:last-child { border-bottom: none; }
-    .edu-period { font-size: 0.78rem; color: var(--accent); text-align: right; white-space: nowrap; }
-    .edu-school {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: #fff;
-      margin-bottom: 0.25rem;
-    }
-    .edu-degree { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.5rem; }
-    .edu-note {
-      font-size: 0.78rem;
-      color: var(--accent);
-      background: rgba(26,216,176,0.08);
-      border-radius: 5px;
-      padding: 0.2rem 0.6rem;
-      display: inline-block;
-    }
-    .edu-gpa { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
-
-    /* ── AWARDS ── */
-    .award-list { display: flex; flex-direction: column; gap: 0.85rem; }
-    .award-item {
-      display: flex;
-      gap: 1rem;
-      align-items: flex-start;
-      padding: 1rem 1.25rem;
-      background: var(--navy3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
-    .award-icon { color: #f59e0b; font-size: 0.9rem; padding-top: 2px; flex-shrink: 0; }
-    .award-text { font-size: 0.86rem; color: var(--muted); line-height: 1.5; }
-    .award-text strong { color: var(--text); font-weight: 500; }
-
-    /* ── FOOTER ── */
-    footer {
-      margin-left: var(--sidebar-w);
-      padding: 2rem 4rem;
-      font-size: 0.75rem;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    footer a { color: var(--accent); text-decoration: none; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 900px) {
-      #sidebar {
-        position: static;
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        padding: 1.5rem;
-        border-right: none;
-        border-bottom: 1px solid var(--border);
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport"/>
+    <meta content="Venkata Krishna Chaitanya Nuthalapati (NVK Chaitanya), Workday software engineer and researcher: papers, open source, media references, and volunteer teaching." name="description"/>
+    <meta name="author" content="Venkata Krishna Chaitanya Nuthalapati"/>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
+    <meta property="og:site_name" content="Venkata Krishna Chaitanya Nuthalapati"/>
+    <meta property="og:locale" content="en_US"/>
+    <title>Venkata Krishna Chaitanya Nuthalapati · Software Engineer &amp; Researcher</title>
+    <link href="https://nvk681.github.io/" rel="canonical"/>
+    <meta content="Venkata Krishna Chaitanya Nuthalapati · Software Engineer &amp; Researcher" property="og:title"/>
+    <meta content="Venkata Krishna Chaitanya Nuthalapati (NVK Chaitanya), Workday software engineer and researcher: papers, open source, media references, and volunteer teaching." property="og:description"/>
+    <meta content="website" property="og:type"/>
+    <meta content="https://nvk681.github.io/" property="og:url"/>
+    <meta content="https://nvk681.github.io/assets/img/nvk.jpg" property="og:image"/>
+    <meta content="Venkata Krishna Chaitanya Nuthalapati" property="og:image:alt"/>
+    <meta content="summary" name="twitter:card"/>
+    <meta content="Venkata Krishna Chaitanya Nuthalapati · Software Engineer &amp; Researcher" name="twitter:title"/>
+    <meta content="Venkata Krishna Chaitanya Nuthalapati (NVK Chaitanya), Workday software engineer and researcher: papers, open source, media references, and volunteer teaching." name="twitter:description"/>
+    <meta content="https://nvk681.github.io/assets/img/nvk.jpg" name="twitter:image"/>
+    <meta content="Venkata Krishna Chaitanya Nuthalapati" name="twitter:image:alt"/>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": "https://nvk681.github.io/#website",
+            "url": "https://nvk681.github.io/",
+            "name": "Venkata Krishna Chaitanya Nuthalapati",
+            "alternateName": "NVK Chaitanya Portfolio",
+            "inLanguage": "en",
+            "publisher": {
+              "@id": "https://nvk681.github.io/#person"
+            }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://nvk681.github.io/#profile",
+            "url": "https://nvk681.github.io/",
+            "name": "Venkata Krishna Chaitanya Nuthalapati · Software Engineer & Researcher",
+            "description": "Venkata Krishna Chaitanya Nuthalapati (NVK Chaitanya), Workday software engineer and researcher: papers, open source, media references, and volunteer teaching.",
+            "inLanguage": "en",
+            "mainEntity": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#website"
+            },
+            "hasPart": [
+              {
+                "@id": "https://nvk681.github.io/#publications"
+              },
+              {
+                "@id": "https://nvk681.github.io/#articles"
+              },
+              {
+                "@id": "https://nvk681.github.io/#volunteering"
+              },
+              {
+                "@id": "https://nvk681.github.io/#peer-review"
+              },
+              {
+                "@id": "https://nvk681.github.io/#profiles"
+              },
+              {
+                "@id": "https://nvk681.github.io/#supporting"
+              },
+              {
+                "@id": "https://nvk681.github.io/#experience"
+              },
+              {
+                "@id": "https://nvk681.github.io/#education"
+              },
+              {
+                "@id": "https://nvk681.github.io/#awards"
+              },
+              {
+                "@id": "https://nvk681.github.io/#skills"
+              },
+              {
+                "@id": "https://nvk681.github.io/#projects"
+              },
+              {
+                "@id": "https://nvk681.github.io/#media"
+              }
+            ]
+          },
+          {
+            "@type": "Person",
+            "@id": "https://nvk681.github.io/#person",
+            "name": "Venkata Krishna Chaitanya Nuthalapati",
+            "alternateName": [
+              "Nuthalapati Venkata Krishna Chaitanya",
+              "NVK Chaitanya",
+              "Nvk Chaitanya",
+              "N.V.K. Chaitanya",
+              "nvk681"
+            ],
+            "jobTitle": "Software Development Engineer",
+            "worksFor": {
+              "@type": "Organization",
+              "name": "Workday"
+            },
+            "alumniOf": [
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "Georgia State University"
+              },
+              {
+                "@type": "CollegeOrUniversity",
+                "name": "Vignan University"
+              }
+            ],
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Atlanta",
+              "addressRegion": "GA",
+              "addressCountry": "US"
+            },
+            "url": "https://nvk681.github.io/",
+            "sameAs": [
+              "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en",
+              "https://orcid.org/0009-0007-5123-042X",
+              "https://www.researchgate.net/profile/Venkata-Krishna-Chaitanya-Nuthalapati",
+              "https://independent.academia.edu/VenkataKrishnaChaitanyaNuthalapati",
+              "https://www.linkedin.com/in/nvk-chaitanya",
+              "https://github.com/nvk681",
+              "https://scispace.com/authors/nuthalapati-venkata-krishna-chaitanya-4vvmu5ml04"
+            ],
+            "knowsAbout": [
+              "Distributed systems",
+              "Backend engineering",
+              "DevSecOps",
+              "CI/CD",
+              "Web crawling",
+              "Knowledge graphs",
+              "Software architecture",
+              "Computer vision",
+              "Hashing algorithms",
+              "Web security",
+              "Programming education"
+            ],
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "ORCID",
+              "value": "0009-0007-5123-042X"
+            },
+            "subjectOf": [
+              {
+                "@id": "https://nvk681.github.io/#coverage-1"
+              },
+              {
+                "@id": "https://nvk681.github.io/#coverage-2"
+              },
+              {
+                "@id": "https://nvk681.github.io/#coverage-3"
+              },
+              {
+                "@id": "https://nvk681.github.io/#coverage-4"
+              },
+              {
+                "@id": "https://nvk681.github.io/#coverage-5"
+              },
+              {
+                "@id": "https://nvk681.github.io/#coverage-6"
+              },
+              {
+                "@id": "https://nvk681.github.io/#coverage-7"
+              }
+            ],
+            "description": "Venkata Krishna Chaitanya Nuthalapati (NVK Chaitanya), Workday software engineer and researcher: papers, open source, media references, and volunteer teaching.",
+            "image": "https://nvk681.github.io/assets/img/nvk.jpg",
+            "mainEntityOfPage": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "affiliation": [
+              {
+                "@id": "https://nvk681.github.io/#mentors-without-borders"
+              },
+              {
+                "@id": "https://nvk681.github.io/#food4lives"
+              },
+              {
+                "@id": "https://nvk681.github.io/#jitcai"
+              }
+            ]
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://nvk681.github.io/#paper-microservices",
+            "name": "Balancing Microservices and Monolithic Architectures",
+            "author": [
+              {
+                "@id": "https://nvk681.github.io/#person"
+              }
+            ],
+            "url": "https://arxiv.org/abs/2607.03898",
+            "datePublished": "2026-07-04",
+            "sameAs": [
+              "https://www.researchgate.net/publication/408317204_Article_Type_Case_Study_Balancing_Microservices_and_Monolithic_Architectures",
+              "https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202602218608239358"
+            ],
+            "isPartOf": {
+              "@type": "Periodical",
+              "name": "Feedforward",
+              "publisher": {
+                "@type": "Organization",
+                "name": "IEEE Computer Society Santa Clara Valley Chapter"
+              }
+            },
+            "headline": "Balancing Microservices and Monolithic Architectures",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://nvk681.github.io/#paper-helmet",
+            "name": "Real-Time Multi-Object Detection for Helmet Safety",
+            "author": [
+              {
+                "@id": "https://nvk681.github.io/#person"
+              }
+            ],
+            "url": "https://arxiv.org/abs/2205.09878",
+            "datePublished": "2022-05-19",
+            "headline": "Real-Time Multi-Object Detection for Helmet Safety",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://nvk681.github.io/#paper-matrix",
+            "name": "Matrix Hashing with Two Level of Collision Resolution",
+            "author": [
+              {
+                "@id": "https://nvk681.github.io/#person"
+              },
+              {
+                "@type": "Person",
+                "name": "Anand Agrawal"
+              },
+              {
+                "@type": "Person",
+                "name": "Sriram Bhyravarapu"
+              }
+            ],
+            "url": "https://doi.org/10.1109/CONFLUENCE.2018.8442607",
+            "datePublished": "2018",
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "DOI",
+              "value": "10.1109/CONFLUENCE.2018.8442607"
+            },
+            "sameAs": [
+              "https://ieeexplore.ieee.org/abstract/document/8442607"
+            ],
+            "isPartOf": {
+              "@type": "CreativeWork",
+              "name": "2018 8th International Conference on Cloud Computing, Data Science & Engineering (Confluence)"
+            },
+            "pagination": "526",
+            "headline": "Matrix Hashing with Two Level of Collision Resolution",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://nvk681.github.io/#paper-installation",
+            "name": "Installation Automation Tool",
+            "author": [
+              {
+                "@id": "https://nvk681.github.io/#person"
+              }
+            ],
+            "url": "https://nvk681.github.io/#paper-installation",
+            "datePublished": "2018",
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "DOI",
+              "value": "10.1007/978-981-10-7868-2_24"
+            },
+            "isPartOf": {
+              "@type": "BookSeries",
+              "name": "Advances in Intelligent Systems and Computing",
+              "publisher": {
+                "@type": "Organization",
+                "name": "Springer"
+              }
+            },
+            "headline": "Installation Automation Tool",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "ScholarlyArticle",
+            "@id": "https://nvk681.github.io/#paper-cash",
+            "name": "Securing Cash Transactions Any Where Using Artificial Intelligence",
+            "author": [
+              {
+                "@id": "https://nvk681.github.io/#person"
+              }
+            ],
+            "url": "https://doi.org/10.5281/zenodo.20237265",
+            "datePublished": "2017",
+            "identifier": {
+              "@type": "PropertyValue",
+              "propertyID": "DOI",
+              "value": "10.5281/zenodo.20237265"
+            },
+            "sameAs": [
+              "https://www.researchgate.net/publication/404947893_SECURING_CASH_TRANSACTIONS_ANY_WHERE_USING_ARTIFICIAL_INTELLIGENCE"
+            ],
+            "headline": "Securing Cash Transactions Any Where Using Artificial Intelligence",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "NewsArticle",
+            "@id": "https://nvk681.github.io/#coverage-1",
+            "name": "What It Means to Maintain Open-Source Infrastructure in an Era of Rapid Change",
+            "url": "https://www.theamericanreporter.com/2026/09/29/what-it-means-to-maintain-open-source-infrastructure-in-an-era-of-rapid-change/",
+            "description": "Coverage of maintaining open-source infrastructure.",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "The American Reporter"
+            },
+            "datePublished": "2026-09-29"
+          },
+          {
+            "@type": "NewsArticle",
+            "@id": "https://nvk681.github.io/#coverage-2",
+            "name": "How Modern HR and Financial Platforms Are Preventing Costly System Failures",
+            "url": "https://foxinterviewer.com/technology/how-modern-hr-and-financial-platforms-are-preventing-costly-system-failures/",
+            "description": "Coverage of reliability in HR and financial platforms.",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Fox Interviewer"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://nvk681.github.io/#coverage-3",
+            "name": "Instagram reel",
+            "url": "https://www.instagram.com/reel/DbT_E6rO_Mg/",
+            "description": "Social media reel.",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Instagram"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://nvk681.github.io/#coverage-4",
+            "name": "Instagram post",
+            "url": "https://www.instagram.com/p/DbV87ATjntM/",
+            "description": "Social media post.",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Instagram"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://nvk681.github.io/#coverage-5",
+            "name": "xRaised: software engineering and tech leadership",
+            "url": "https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techleadership-ugcPost-7487628203725873152-Ys_9",
+            "description": "Public post tagged software engineering and tech leadership.",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "xRaised · LinkedIn"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://nvk681.github.io/#coverage-6",
+            "name": "xRaised: software engineering and tech innovation",
+            "url": "https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techinnovation-activity-7487904544601833472-4Cjc",
+            "description": "Public post tagged software engineering and tech innovation.",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "xRaised · LinkedIn"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://nvk681.github.io/#coverage-7",
+            "name": "Public LinkedIn post",
+            "url": "https://www.linkedin.com/posts/nvk-chaitanya_check-out-this-amazing-work-by-my-friend-activity-7316607240055005185-yHnl",
+            "description": "Public post shared by NVK Chaitanya.",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "LinkedIn"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#media",
+            "name": "Media & Press",
+            "url": "https://nvk681.github.io/#media",
+            "mainEntity": {
+              "@type": "ItemList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "item": {
+                    "@id": "https://nvk681.github.io/#coverage-1"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "item": {
+                    "@id": "https://nvk681.github.io/#coverage-2"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "item": {
+                    "@id": "https://nvk681.github.io/#coverage-3"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "item": {
+                    "@id": "https://nvk681.github.io/#coverage-4"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "item": {
+                    "@id": "https://nvk681.github.io/#coverage-5"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 6,
+                  "item": {
+                    "@id": "https://nvk681.github.io/#coverage-6"
+                  }
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 7,
+                  "item": {
+                    "@id": "https://nvk681.github.io/#coverage-7"
+                  }
+                }
+              ]
+            },
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            }
+          },
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://nvk681.github.io/#gumo",
+            "name": "gumo",
+            "description": "Web crawler and scraper for nested dynamic pages and knowledge graph extraction with Elasticsearch and Neo4j.",
+            "codeRepository": "https://github.com/nvk681/Gumo",
+            "license": "https://opensource.org/license/mit",
+            "programmingLanguage": [
+              "JavaScript",
+              "Node.js"
+            ],
+            "url": "https://www.npmjs.com/package/gumo",
+            "author": {
+              "@id": "https://nvk681.github.io/#person"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#publications",
+            "url": "https://nvk681.github.io/#publications",
+            "name": "Research Publications",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "hasPart": [
+              {
+                "@id": "https://nvk681.github.io/#paper-microservices"
+              },
+              {
+                "@id": "https://nvk681.github.io/#paper-helmet"
+              },
+              {
+                "@id": "https://nvk681.github.io/#paper-matrix"
+              },
+              {
+                "@id": "https://nvk681.github.io/#paper-installation"
+              },
+              {
+                "@id": "https://nvk681.github.io/#paper-cash"
+              }
+            ]
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#articles",
+            "url": "https://nvk681.github.io/#articles",
+            "name": "Published Articles",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "hasPart": [
+              {
+                "@id": "https://nvk681.github.io/#article-matrix"
+              },
+              {
+                "@id": "https://nvk681.github.io/#article-helmet"
+              }
+            ]
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#volunteering",
+            "url": "https://nvk681.github.io/#volunteering",
+            "name": "Volunteering",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": [
+              {
+                "@id": "https://nvk681.github.io/#person"
+              },
+              {
+                "@id": "https://nvk681.github.io/#mentors-without-borders"
+              },
+              {
+                "@id": "https://nvk681.github.io/#food4lives"
+              }
+            ]
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#peer-review",
+            "url": "https://nvk681.github.io/#peer-review",
+            "name": "Peer Review",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "citation": {
+              "@id": "https://nvk681.github.io/#jitcai-review-team"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#profiles",
+            "url": "https://nvk681.github.io/#profiles",
+            "name": "Academic and Professional Profiles",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#supporting",
+            "url": "https://nvk681.github.io/#supporting",
+            "name": "Supporting References",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "citation": {
+              "@id": "https://nvk681.github.io/#patterson-cv"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#experience",
+            "url": "https://nvk681.github.io/#experience",
+            "name": "Experience",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#education",
+            "url": "https://nvk681.github.io/#education",
+            "name": "Education",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#awards",
+            "url": "https://nvk681.github.io/#awards",
+            "name": "Awards",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#skills",
+            "url": "https://nvk681.github.io/#skills",
+            "name": "Skills",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            }
+          },
+          {
+            "@type": "WebPageElement",
+            "@id": "https://nvk681.github.io/#projects",
+            "url": "https://nvk681.github.io/#projects",
+            "name": "Projects",
+            "isPartOf": {
+              "@id": "https://nvk681.github.io/#profile"
+            },
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "hasPart": [
+              {
+                "@id": "https://nvk681.github.io/#gumo"
+              }
+            ]
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://nvk681.github.io/#mentors-without-borders",
+            "name": "Mentors Without Borders",
+            "member": {
+              "@type": "OrganizationRole",
+              "roleName": "Volunteer instructor",
+              "description": "Remote weekly web development and programming lessons for junior high school students in Ghana, starting February 2026.",
+              "member": {
+                "@id": "https://nvk681.github.io/#person"
+              }
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://nvk681.github.io/#food4lives",
+            "name": "Food4Lives",
+            "member": {
+              "@type": "OrganizationRole",
+              "roleName": "Volunteer and donor",
+              "description": "Community food assistance.",
+              "member": {
+                "@id": "https://nvk681.github.io/#person"
+              }
+            }
+          },
+          {
+            "@type": "Organization",
+            "@id": "https://nvk681.github.io/#jitcai",
+            "name": "JITCAI",
+            "member": {
+              "@type": "OrganizationRole",
+              "roleName": "Reviewer",
+              "description": "Listed on the journal review team.",
+              "member": {
+                "@id": "https://nvk681.github.io/#person"
+              }
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://nvk681.github.io/#jitcai-review-team",
+            "name": "JITCAI Review Team",
+            "url": "https://www.jitcai.org/index.php/journal/Review-Team",
+            "about": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@id": "https://nvk681.github.io/#jitcai"
+            }
+          },
+          {
+            "@type": "CreativeWork",
+            "@id": "https://nvk681.github.io/#patterson-cv",
+            "name": "Murray Patterson curriculum vitae",
+            "url": "https://murraypatterson.github.io/cv.pdf",
+            "encodingFormat": "application/pdf",
+            "author": {
+              "@type": "Person",
+              "name": "Murray Patterson"
+            },
+            "description": "Supporting reference listing the Tsuba web security scanner project."
+          },
+          {
+            "@type": "Article",
+            "@id": "https://nvk681.github.io/#article-matrix",
+            "headline": "Matrix Hashing: Two-Level Collision Resolution for Scalable Lookups",
+            "url": "https://hackernoon.com/matrix-hashing-two-level-collision-resolution-for-scalable-lookups",
+            "author": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "HackerNoon"
+            },
+            "inLanguage": "en"
+          },
+          {
+            "@type": "Article",
+            "@id": "https://nvk681.github.io/#article-helmet",
+            "headline": "Ensuring Trustworthy AI in Sports Safety: A Case Study of Real-Time Helmet Collision Detection",
+            "url": "https://hackernoon.com/ensuring-trustworthy-ai-in-sports-safety-a-case-study-of-real-time-helmet-collision-detection",
+            "author": {
+              "@id": "https://nvk681.github.io/#person"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "HackerNoon"
+            },
+            "inLanguage": "en"
+          }
+        ]
       }
-      .profile-wrap { flex-direction: row; text-align: left; border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
-      .profile-img { width: 60px; height: 60px; margin-bottom: 0; margin-right: 1rem; }
-      nav ul { display: flex; flex-wrap: wrap; gap: 0.25rem; }
-      .sidebar-socials { margin-top: 0; }
-      main, footer { margin-left: 0; }
-      section { padding: 3rem 1.5rem; }
-      .exp-item, .edu-item { grid-template-columns: 1fr; gap: 0.5rem; }
-      .exp-meta, .edu-period { text-align: left; }
-      footer { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-  </style>
-</head>
-<body>
-
-<!-- ═══ SIDEBAR ═══ -->
-<aside id="sidebar">
-  <div class="profile-wrap">
-    <img src="assets/img/nvk.jpg" alt="N.V.K. Chaitanya" class="profile-img" />
-    <div>
-      <div class="profile-name">N.V.K. Chaitanya</div>
-      <div class="profile-role">Software Engineer · Atlanta, GA</div>
-    </div>
-  </div>
-
-  <nav>
-    <ul>
-      <li><a href="#about"><i class="fa-regular fa-user"></i> About</a></li>
-      <li><a href="#experience"><i class="fa-regular fa-briefcase"></i> Experience</a></li>
-      <li><a href="#projects"><i class="fa-regular fa-folder-open"></i> Projects</a></li>
-      <li><a href="#publications"><i class="fa-regular fa-file-lines"></i> Publications</a></li>
-      <li><a href="#articles"><i class="fa-regular fa-newspaper"></i> Articles</a></li>
-      <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
-      <li><a href="#education"><i class="fa-regular fa-graduation-cap"></i> Education</a></li>
-      <li><a href="#awards"><i class="fa-regular fa-star"></i> Awards</a></li>
-      <li><a href="#volunteering"><i class="fa-solid fa-hand-holding-heart"></i> Volunteering</a></li>
-    </ul>
-  </nav>
-
-  <div class="sidebar-socials">
-    <a href="https://www.linkedin.com/in/nvk-chaitanya/" title="LinkedIn" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-    <a href="https://github.com/nvk681" title="GitHub" target="_blank"><i class="fa-brands fa-github"></i></a>
-    <a href="https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en" title="Google Scholar" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
-    <a href="https://www.npmjs.com/package/gumo" title="npm Package" target="_blank"><i class="fa-brands fa-npm"></i></a>
-    <a href="mailto:nvk.681@gmail.com" title="Email"><i class="fa-regular fa-envelope"></i></a>
-  </div>
-</aside>
-
-<!-- ═══ MAIN ═══ -->
-<main>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="about-eyebrow">Hey there, I'm</div>
-    <h1 class="about-name">Chaitanya<br><span>N.V.K.</span></h1>
-    <div class="about-subtitle">Software Development Engineer · Workday, Atlanta GA</div>
-
-    <div class="about-contact">
-      <a href="tel:+14044905061"><i class="fa-solid fa-phone"></i>+1 (404) 490-5061</a>
-      <a href="mailto:nvk.681@gmail.com"><i class="fa-solid fa-envelope"></i>nvk.681@gmail.com</a>
-      <a href="https://nvk681.github.io/" target="_blank"><i class="fa-solid fa-globe"></i>nvk681.github.io</a>
-    </div>
-
-    <p class="about-bio">
-      Highly skilled software engineer with 7+ years of experience delivering impactful solutions at Workday, Amazon, and Darwinbox. My expertise spans zero-loss database migrations, scalable backend systems, cloud infrastructure, API design, and production safety guardrails.<br><br>
-      I also publish open-source tools and research — including the <strong>gumo</strong> npm package (web-crawler &amp; scraper) and peer-reviewed papers on software architecture, computer vision, and hashing algorithms.
-    </p>
-
-    <div class="stat-row">
-      <div class="stat-box">
-        <div class="stat-num">7+</div>
-        <div class="stat-lbl">Years Experience</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">4</div>
-        <div class="stat-lbl">Research Papers</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">1</div>
-        <div class="stat-lbl">npm Package</div>
-      </div>
-      <div class="stat-box">
-        <div class="stat-num">25M+</div>
-        <div class="stat-lbl">Users Impacted</div>
-      </div>
-    </div>
-
-    <a class="btn-primary-outline" href="N_V_K_Chaitanya_Resume.pdf?v=2026-09" download="N_V_K_Chaitanya_Resume.pdf">
-      <i class="fa-solid fa-download"></i> Download Resume
-    </a>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-label">Career</div>
-    <h2 class="section-title">Experience</h2>
-
-    <!-- Workday -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-period">Aug 2025 – Present</div>
-        <div class="exp-location">Atlanta, GA</div>
-      </div>
-      <div>
-        <div class="exp-company">Workday</div>
-        <div class="exp-role">Software Development Engineer</div>
-        <ul class="exp-bullets">
-          <li><strong>CI/CD REST API Platform:</strong> Designed and shipped production <strong>/api/v2</strong> endpoints — revision sessions, conflict detection, audit reporting, IA bypass, and push-to-master — across <strong>36 merged PRs</strong>, extending the UI-only platform to programmatic service integrations. Now serves <strong>~1.1M UI + API requests / 30 days</strong> (~201K programmatic) in production.</li>
-          <li><strong>Service-to-Service Authentication &amp; Security:</strong> Built hashed API-key auth with Quarkus security (service vs. user context separation) plus Narada Bearer support, and drove the threat model through Workday's security review — unblocking API GA with a validated auth layer covering both flows.</li>
-          <li><strong>Push-to-Master &amp; Merge-When-Ready Hardening:</strong> Shipped PCQ client-credential auth, push cancellation, and automatic IA-bypass; standardized typed <strong>422/503</strong> error codes with EMF metrics and CloudWatch dashboards/alarms, replacing generic 500s with named, observable failure modes for on-call.</li>
-          <li><strong>Distributed Tracing Across the Pipeline:</strong> Implemented end-to-end <strong>X-Trace-ID</strong> propagation from Coffeehouse through CRS, Panda, and XORC to GitHub Checks, closing the epic with full cross-service trace correlation and faster root-cause on pipeline failures.</li>
-          <li><strong>Capacity Sizing &amp; Graviton Migration:</strong> Right-sized production ECS to <strong>4 vCPU / 16 GB</strong> (post-resize CPU ~1.5% mean) and authored the x86&rarr;Graviton RDS migration assessment across five service groups, filing per-instance implementation stories with projected cost savings.</li>
-          <li><strong>Async Reliability &amp; Audit Governance:</strong> Added a <strong>10-minute hard timeout</strong> to AuditReportWorkflow and built job-step tracking with an async coordinator pattern — eliminating indefinitely-hung audit jobs and giving operators step-level visibility.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Amazon SDE -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-period">Sep 2023 – May 2025</div>
-        <div class="exp-location">Seattle, WA</div>
-      </div>
-      <div>
-        <div class="exp-company">Amazon</div>
-        <div class="exp-role">Software Development Engineer</div>
-        <ul class="exp-bullets">
-          <li><strong>UNFI Enhancement:</strong> Improved vendor item-store review pages using AWS Lambda, reducing decision-making time from hours to minutes.</li>
-          <li><strong>WRAP Backfills:</strong> Led backfill initiatives in UK, JP, and US — enabling online sales for physical stores, increasing sales by <strong>20%</strong> in initial months.</li>
-          <li><strong>WRAP Migration:</strong> Optimized migration workflows and Lambda configurations, achieving a <strong>30% reduction</strong> in migration time.</li>
-          <li><strong>Guardrails:</strong> Developed workflow rules and validations, resulting in a <strong>60% decrease</strong> in user tickets by automating error handling and data validation.</li>
-          <li><strong>Grocery Listing:</strong> Enhanced the supply chain listing process, cutting user story time from 10 minutes to 4 minutes for over <strong>25 million global users</strong>.</li>
-          <li><strong>Sourcing Grid:</strong> Designed a new API and UI to streamline configuration, simplifying selection from five attributes to one.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- RE IT Services -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-period">Feb 2023 – Jul 2023</div>
-        <div class="exp-location">Atlanta, GA</div>
-      </div>
-      <div>
-        <div class="exp-company">RE IT Services Inc</div>
-        <div class="exp-role">Software Development Engineer</div>
-        <ul class="exp-bullets">
-          <li><strong>Data Pipeline:</strong> Implemented auto-archival of database records, resulting in a <strong>90% improvement</strong> in query performance.</li>
-          <li><strong>API Scaling:</strong> Enhanced APIs for increased load and automated CI/CD tasks using Jenkins and Docker, saving <strong>6 hours</strong> of manual work per task.</li>
-          <li><strong>Data Processing:</strong> Built event-driven data processing solutions using Kafka, standardizing multi-source data across <strong>18 systems</strong> and reducing on-call load by 11 hours/week.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- AWS Intern -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-period">May 2022 – Aug 2022</div>
-        <div class="exp-location">Metro DC, VA</div>
-      </div>
-      <div>
-        <div class="exp-company">Amazon · AWS</div>
-        <div class="exp-role">SDE Intern</div>
-        <ul class="exp-bullets">
-          <li><strong>AEA Onboarding:</strong> Streamlined the AWS Enterprise Access onboarding process, reducing average onboarding time by <strong>7 hours</strong> per instance.</li>
-          <li><strong>Topos:</strong> Built a full-stack Python console to resolve security issues from network scans, enhancing security for <strong>9,000 Amazon services</strong>.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Darwinbox Senior -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-period">Jun 2018 – Aug 2021</div>
-        <div class="exp-location">Hyderabad, India</div>
-      </div>
-      <div>
-        <div class="exp-company">Darwinbox · Cloud-based HRMS</div>
-        <div class="exp-role">Senior Software Engineer</div>
-        <ul class="exp-bullets">
-          <li><strong>Microservices Migration:</strong> Led migration to microservices using Node.js and Docker, reducing throughput time from 6 minutes to 1 minute.</li>
-          <li><strong>MongoDB Optimization:</strong> Executed optimization strategies saving <strong>$800K</strong> in infrastructure costs.</li>
-          <li><strong>Multi-Payroll Integration:</strong> Created stateless APIs for payroll systems, serving <strong>1 million users</strong> across multiple systems.</li>
-          <li><strong>Payroll Automation:</strong> Reduced manual processing hours from 40 to 12 using Redis and RabbitMQ.</li>
-          <li><strong>Taxation System:</strong> Built a multi-country tax handling framework, attracting <strong>50 new clients</strong>.</li>
-          <li><strong>Recruitment Automation:</strong> Automated hiring pipeline using event emitters, reducing hiring time by <strong>60%</strong>.</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Darwinbox Intern -->
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-period">Dec 2017 – Apr 2018</div>
-        <div class="exp-location">Hyderabad, India</div>
-      </div>
-      <div>
-        <div class="exp-company">Darwinbox</div>
-        <div class="exp-role">Intern</div>
-        <ul class="exp-bullets">
-          <li><strong>Chatbot:</strong> Leveraged Wit.ai (Facebook's NLP) to automate tasks for <strong>1 million+ customers</strong>, using Go.</li>
-          <li><strong>OCR Integration:</strong> Integrated OCR into reimbursement workflows, reducing processing time by <strong>90%</strong>.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="section-label">Open Source &amp; Personal</div>
-    <h2 class="section-title">Projects</h2>
-
-    <div class="projects-grid">
-      <!-- Gumo -->
-      <div class="project-card featured">
-        <div class="project-icon"><i class="fa-brands fa-npm"></i></div>
-        <div class="project-badge">Open Source · npm</div>
-        <div class="project-title">gumo</div>
-        <div class="project-desc">
-          A web-crawler and scraper for extracting data from families of nested, dynamic web pages. Built with enhancements to assist knowledge-mining applications. Published as a public npm package — currently on v2.0.1 (MIT License).
-        </div>
-        <div class="project-npm-stats">
-          <div class="npm-stat">Version <span>2.0.1</span></div>
-          <div class="npm-stat">Downloads <span>~13/week</span></div>
-          <div class="npm-stat">Versions <span>8</span></div>
-        </div>
-        <div class="project-tags">
-          <span class="tag">Node.js</span>
-          <span class="tag">MongoDB</span>
-          <span class="tag">npm</span>
-          <span class="tag">Web Crawler</span>
-          <span class="tag">MIT</span>
-        </div>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a class="project-link" href="https://www.npmjs.com/package/gumo" target="_blank">npm page <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
-          <a class="project-link" href="https://github.com/nvk681/Gumo" target="_blank">GitHub <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
-        </div>
-      </div>
-
-      <!-- NFL Helmet Safety -->
-      <div class="project-card">
-        <div class="project-icon"><i class="fa-solid fa-helmet-safety"></i></div>
-        <div class="project-badge">Research · Computer Vision</div>
-        <div class="project-title">NFL Helmet Safety · Real-Time Detection</div>
-        <div class="project-desc">
-          Helmet segmentation and labeling for the NFL Health &amp; Safety Kaggle challenge. Research published on arXiv as "Real-Time Multi-Object Detection for Helmet Safety" (May 2022).
-        </div>
-        <div class="project-tags">
-          <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">NumPy</span>
-          <span class="tag">Detectron</span>
-          <span class="tag">Deep Learning</span>
-        </div>
-        <div style="display:flex; gap:1rem; flex-wrap:wrap;">
-          <a class="project-link" href="https://arxiv.org/abs/2205.09878" target="_blank">arXiv <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
-          <a class="project-link" href="https://github.com/Mrinal18/NFL_Kaggle" target="_blank">GitHub <i class="fa-solid fa-arrow-right" style="font-size:0.7rem;"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PUBLICATIONS -->
-  <section id="publications">
-    <div class="section-label">Academic Research</div>
-    <h2 class="section-title">Research Publications</h2>
-    <div class="pub-list">
-
-      <div class="pub-card">
-        <span class="pub-badge ieee">IEEE</span>
+    </script>
+    <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;display=swap" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+    <link href="css/styles.css" rel="stylesheet"/>
+    <script defer src="js/scripts.js"></script>
+  </head>
+  <body>
+    <!-- ═══ SIDEBAR ═══ -->
+    <aside id="sidebar">
+      <div class="profile-wrap">
+        <img alt="Venkata Krishna Chaitanya Nuthalapati" class="profile-img" src="assets/img/nvk.jpg"/>
         <div>
-          <div class="pub-title">"Balancing Microservices and Monolithic Architectures"</div>
-          <div class="pub-meta">Nuthalapati, V.K.C. · IEEE Computer Society Santa Clara Valley Chapter · <em>Feedforward</em>, Vol. 5, No. 3, pp. 28–33 · Jul 2026</div>
-          <div class="pub-meta">Practical trade-off analysis for choosing between microservices and monolithic architectures across team size, operational maturity, and scaling needs.</div>
-          <a class="pub-link" href="https://arxiv.org/abs/2607.03898" target="_blank">arxiv.org/abs/2607.03898 ↗</a>
+          <div class="profile-name">N.V.K. Chaitanya</div>
+          <div class="profile-role">Software Engineer · Atlanta, GA</div>
         </div>
       </div>
-
-      <div class="pub-card">
-        <span class="pub-badge arxiv">arXiv</span>
-        <div>
-          <div class="pub-title">"Real-Time Multi-Object Detection for Helmet Safety"</div>
-          <div class="pub-meta">Nuthalapati, V.K.C. et al. · arXiv · May 19, 2022</div>
-          <div class="pub-meta">Developed real-time helmet identification using deep learning for player safety in NFL environments. Covers multi-object detection under motion blur and occlusion.</div>
-          <a class="pub-link" href="https://arxiv.org/abs/2205.09878" target="_blank">arxiv.org/abs/2205.09878 ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <span class="pub-badge ieee">IEEE</span>
-        <div>
-          <div class="pub-title">"Matrix Hashing with Two Levels of Collision Resolution"</div>
-          <div class="pub-meta">Nuthalapati, N.V.K.C. et al. · IEEE Confluence 2018 · 8th International Conference on Cloud Computing, Data Science &amp; Engineering</div>
-          <div class="pub-meta">Proposed a novel hashing technique improving collision management efficiency for scalable lookup structures.</div>
-          <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/8442607" target="_blank">ieeexplore.ieee.org/abstract/document/8442607 ↗</a>
-        </div>
-      </div>
-
-      <div class="pub-card">
-        <span class="pub-badge springer">Springer</span>
-        <div>
-          <div class="pub-title">"Installation Automation Tool"</div>
-          <div class="pub-meta">Nuthalapati, V.K.C. et al. · ICAIECES-2017 &amp; ICPCIT-2017 · Springer</div>
-          <div class="pub-meta">Automated software installation and configuration workflows for enterprise environments.</div>
-        </div>
-      </div>
-
-    </div>
-
-    <p style="margin-top:1.5rem; font-size:0.8rem; color:var(--muted);">
-      <i class="fa-solid fa-graduation-cap" style="color:var(--accent); margin-right:0.4rem;"></i>
-      Full profile:
-      <a href="https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en" target="_blank" style="color:var(--accent2); text-decoration:none;">Google Scholar</a> ·
-      <a href="https://www.researchgate.net/profile/Venkata-Krishna-Chaitanya-Nuthalapati" target="_blank" style="color:var(--accent2); text-decoration:none;">ResearchGate</a> ·
-      <a href="https://independent.academia.edu/VenkataKrishnaChaitanyaNuthalapati" target="_blank" style="color:var(--accent2); text-decoration:none;">Academia.edu</a>
-    </p>
-  </section>
-
-  <!-- ARTICLES -->
-  <section id="articles">
-    <div class="section-label">Writing</div>
-    <h2 class="section-title">Published Articles</h2>
-    <div class="pub-list">
-
-      <div class="article-card">
-        <div class="article-icon"><i class="fa-brands fa-hashnode"></i></div>
-        <div>
-          <div class="article-source">HackerNoon</div>
-          <div class="article-title">Matrix Hashing: Two-Level Collision Resolution for Scalable Lookups</div>
-          <a class="article-link" href="https://hackernoon.com/matrix-hashing-two-level-collision-resolution-for-scalable-lookups" target="_blank">
-            hackernoon.com ↗
-          </a>
-        </div>
-      </div>
-
-      <div class="article-card">
-        <div class="article-icon"><i class="fa-brands fa-hashnode"></i></div>
-        <div>
-          <div class="article-source">HackerNoon</div>
-          <div class="article-title">Ensuring Trustworthy AI in Sports Safety: A Case Study of Real-Time Helmet Collision Detection</div>
-          <a class="article-link" href="https://hackernoon.com/ensuring-trustworthy-ai-in-sports-safety-a-case-study-of-real-time-helmet-collision-detection" target="_blank">
-            hackernoon.com ↗
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section id="skills">
-    <div class="section-label">Technical</div>
-    <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-
-      <div class="skill-group">
-        <div class="skill-group-title">Languages</div>
-        <div class="skill-pills">
-          <span class="pill">Java</span><span class="pill">Python</span><span class="pill">Go</span>
-          <span class="pill">JavaScript</span><span class="pill">TypeScript</span>
-          <span class="pill">C++</span><span class="pill">SQL</span><span class="pill">NoSQL</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Distributed Systems</div>
-        <div class="skill-pills">
-          <span class="pill">Microservices</span><span class="pill">Kafka</span>
-          <span class="pill">RabbitMQ</span><span class="pill">REST</span>
-          <span class="pill">gRPC</span><span class="pill">Event-driven</span>
-          <span class="pill">Multithreading</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Cloud &amp; DevOps</div>
-        <div class="skill-pills">
-          <span class="pill">AWS Lambda</span><span class="pill">EC2</span><span class="pill">S3</span>
-          <span class="pill">RDS</span><span class="pill">Kubernetes</span>
-          <span class="pill">Docker</span><span class="pill">Jenkins</span>
-          <span class="pill">GCP</span><span class="pill">Azure</span><span class="pill">CI/CD</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Databases</div>
-        <div class="skill-pills">
-          <span class="pill">MongoDB</span><span class="pill">Cassandra</span>
-          <span class="pill">DynamoDB</span><span class="pill">PostgreSQL</span>
-          <span class="pill">Redis</span><span class="pill">ElastiCache</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Frameworks</div>
-        <div class="skill-pills">
-          <span class="pill">Spring Boot</span><span class="pill">Node.js</span>
-          <span class="pill">Express</span><span class="pill">React</span>
-          <span class="pill">Angular</span><span class="pill">TDD</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <div class="skill-group-title">Tools &amp; Observability</div>
-        <div class="skill-pills">
-          <span class="pill">Git</span><span class="pill">Linux</span>
-          <span class="pill">Prometheus</span><span class="pill">Grafana</span>
-          <span class="pill">CloudFormation</span><span class="pill">JProfiler</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education">
-    <div class="section-label">Academic Background</div>
-    <h2 class="section-title">Education</h2>
-
-    <div class="edu-item">
-      <div class="edu-period">Aug 2021 – Dec 2022</div>
-      <div>
-        <div class="edu-school">Georgia State University</div>
-        <div class="edu-degree">Master of Science in Computer Science</div>
-        <span class="edu-note">Full Scholarship + Graduate Teaching Assistantship</span>
-        <div class="edu-gpa">GPA: 3.96 / 4.0 · Atlanta, Georgia</div>
-      </div>
-    </div>
-
-    <div class="edu-item">
-      <div class="edu-period">Aug 2014 – Aug 2018</div>
-      <div>
-        <div class="edu-school">Vignan University</div>
-        <div class="edu-degree">Bachelor of Technology in Computer Science</div>
-        <span class="edu-note">Merit Scholarship</span>
-        <div class="edu-gpa">GPA: 3.65 / 4.0 · Guntur, AP, India</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- AWARDS -->
-  <section id="awards">
-    <div class="section-label">Recognition</div>
-    <h2 class="section-title">Awards</h2>
-    <div class="award-list">
-      <div class="award-item">
-        <i class="fa-solid fa-trophy award-icon"></i>
-        <div class="award-text">Academic Excellence Award based on performance in Bachelor's 1st year (I &amp; II Semester).</div>
-      </div>
-      <div class="award-item">
-        <i class="fa-solid fa-medal award-icon"></i>
-        <div class="award-text">🥇 <strong>1st Place</strong> — CODE CACHE event at International Tech Extravaganza "Srujankura" · Jan 26–28, 2017.</div>
-      </div>
-      <div class="award-item">
-        <i class="fa-solid fa-heart award-icon"></i>
-        <div class="award-text">Regular volunteer and donor for <strong>Food4Lives</strong> — community food assistance organization.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- VOLUNTEERING -->
-  <section id="volunteering">
-    <div class="section-label">Community</div>
-    <h2 class="section-title">Volunteering</h2>
-
-    <div class="exp-item">
-      <div class="exp-meta">
-        <div class="exp-period">Feb 2026 – Present</div>
-        <div class="exp-location">Remote · Ghana</div>
-      </div>
-      <div>
-        <div class="exp-company">Mentors Without Borders · Education</div>
-        <div class="exp-role">Instructor</div>
-        <ul class="exp-bullets">
-          <li>As part of a global initiative to bridge the digital divide, I mentor junior high school students in Ghana remotely — teaching web development and programming basics through structured weekly sessions on Zoom.</li>
-          <li>Every lesson is an opportunity to spark curiosity and open doors for the next generation of developers.</li>
+      <nav>
+        <ul>
+          <li><a href="#about"><i class="fa-regular fa-user"></i> About</a></li>
+          <li><a href="#experience"><i class="fa-regular fa-briefcase"></i> Experience</a></li>
+          <li><a href="#projects"><i class="fa-regular fa-folder-open"></i> Projects</a></li>
+          <li><a href="#publications"><i class="fa-regular fa-file-lines"></i> Publications</a></li>
+          <li><a href="#articles"><i class="fa-regular fa-newspaper"></i> Articles</a></li>
+          <li><a href="#open-source"><i class="fa-solid fa-link"></i> Open Source</a></li>
+          <li><a href="#media"><i class="fa-solid fa-link"></i> Media &amp; Press</a></li>
+          <li><a href="#peer-review"><i class="fa-solid fa-link"></i> Peer Review</a></li>
+          <li><a href="#supporting"><i class="fa-solid fa-link"></i> Supporting References</a></li>
+          <li><a href="#profiles"><i class="fa-solid fa-link"></i> Profiles</a></li>
+          <li><a href="#skills"><i class="fa-solid fa-code"></i> Skills</a></li>
+          <li><a href="#education"><i class="fa-regular fa-graduation-cap"></i> Education</a></li>
+          <li><a href="#awards"><i class="fa-regular fa-star"></i> Awards</a></li>
+          <li><a href="#volunteering"><i class="fa-solid fa-hand-holding-heart"></i> Volunteering</a></li>
         </ul>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>
-  <span>© 2025 N.V.K. Chaitanya · Atlanta, GA</span>
-  <span>Built with care · <a href="https://github.com/nvk681" target="_blank">github.com/nvk681</a></span>
-</footer>
-
-<script>
-  // Scroll-based section reveal
-  const sections = document.querySelectorAll('section');
-  const observer = new IntersectionObserver(
-    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-    { threshold: 0.08 }
-  );
-  sections.forEach(s => observer.observe(s));
-
-  // Active nav highlight
-  const navLinks = document.querySelectorAll('nav a');
-  const sectionEls = Array.from(sections);
-
-  const scrollObs = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(a => {
-          a.classList.toggle('active', a.getAttribute('href') === '#' + id);
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-  sectionEls.forEach(s => scrollObs.observe(s));
-</script>
-</body>
+      </nav>
+      <div class="sidebar-socials"> <a aria-label="LinkedIn" href="#profile-linkedin" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a> <a aria-label="GitHub" href="#profile-github" title="GitHub"><i class="fa-brands fa-github"></i></a> <a aria-label="Google Scholar" href="#profile-scholar" title="Google Scholar"><i class="fa-solid fa-graduation-cap"></i></a> <a aria-label="npm Package" href="#gumo" title="npm Package"><i class="fa-brands fa-npm"></i></a> <a aria-label="Email" href="#contact-email" title="Email"><i class="fa-regular fa-envelope"></i></a> </div>
+    </aside>
+    <!-- ═══ MAIN ═══ -->
+    <main>
+      <!-- ABOUT -->
+      <section id="about">
+        <p class="about-eyebrow">Venkata Krishna Chaitanya Nuthalapati · Independent researcher</p>
+        <div class="about-eyebrow">Hey there, I'm</div>
+        <h1 class="about-name">Chaitanya<br/><span>N.V.K.</span></h1>
+        <div class="about-subtitle">Software Development Engineer · Workday, Atlanta GA</div>
+        <div class="about-contact"> <a href="tel:+14044905061"><i class="fa-solid fa-phone"></i>+1 (404) 490-5061</a> <a href="mailto:nvk.681@gmail.com" id="contact-email"><i class="fa-solid fa-envelope"></i>nvk.681@gmail.com</a> <a href="https://nvk681.github.io/" rel="noopener noreferrer" target="_blank"><i class="fa-solid fa-globe"></i>nvk681.github.io</a> </div>
+        <p class="about-bio"> Highly skilled software engineer with 7+ years of experience delivering impactful solutions at Workday, Amazon, and Darwinbox. My expertise spans zero-loss database migrations, scalable backend systems, cloud infrastructure, API design, and production safety guardrails.<br/><br/> I also publish open-source tools and research — including the <strong>gumo</strong> npm package (web-crawler &amp; scraper) and peer-reviewed papers on software architecture, computer vision, and hashing algorithms. </p>
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-num">7+</div>
+            <div class="stat-lbl">Years Experience</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">5</div>
+            <div class="stat-lbl">Research Papers</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">1</div>
+            <div class="stat-lbl">npm Package</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">25M+</div>
+            <div class="stat-lbl">Users Impacted</div>
+          </div>
+        </div>
+        <a class="btn-primary-outline" download="N_V_K_Chaitanya_Resume.pdf" href="N_V_K_Chaitanya_Resume.pdf?v=2026-09"> <i class="fa-solid fa-download"></i> Download Resume </a>
+      </section>
+      <!-- EXPERIENCE -->
+      <section id="experience">
+        <div class="section-label">Career</div>
+        <h2 class="section-title">Experience</h2>
+        <!-- Workday -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Aug 2025 – Present</div>
+            <div class="exp-location">Atlanta, GA</div>
+          </div>
+          <div>
+            <div class="exp-company">Workday</div>
+            <div class="exp-role">Software Development Engineer</div>
+            <ul class="exp-bullets">
+              <li><strong>CI/CD REST API Platform:</strong> Designed and shipped production <strong>/api/v2</strong> endpoints — revision sessions, conflict detection, audit reporting, IA bypass, and push-to-master — across <strong>36 merged PRs</strong>, extending the UI-only platform to programmatic service integrations. Now serves <strong>~1.1M UI + API requests / 30 days</strong> (~201K programmatic) in production.</li>
+              <li><strong>Service-to-Service Authentication &amp; Security:</strong> Built hashed API-key auth with Quarkus security (service vs. user context separation) plus Narada Bearer support, and drove the threat model through Workday's security review — unblocking API GA with a validated auth layer covering both flows.</li>
+              <li><strong>Push-to-Master &amp; Merge-When-Ready Hardening:</strong> Shipped PCQ client-credential auth, push cancellation, and automatic IA-bypass; standardized typed <strong>422/503</strong> error codes with EMF metrics and CloudWatch dashboards/alarms, replacing generic 500s with named, observable failure modes for on-call.</li>
+              <li><strong>Distributed Tracing Across the Pipeline:</strong> Implemented end-to-end <strong>X-Trace-ID</strong> propagation from Coffeehouse through CRS, Panda, and XORC to GitHub Checks, closing the epic with full cross-service trace correlation and faster root-cause on pipeline failures.</li>
+              <li><strong>Capacity Sizing &amp; Graviton Migration:</strong> Right-sized production ECS to <strong>4 vCPU / 16 GB</strong> (post-resize CPU ~1.5% mean) and authored the x86→Graviton RDS migration assessment across five service groups, filing per-instance implementation stories with projected cost savings.</li>
+              <li><strong>Async Reliability &amp; Audit Governance:</strong> Added a <strong>10-minute hard timeout</strong> to AuditReportWorkflow and built job-step tracking with an async coordinator pattern — eliminating indefinitely-hung audit jobs and giving operators step-level visibility.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Amazon SDE -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Sep 2023 – May 2025</div>
+            <div class="exp-location">Seattle, WA</div>
+          </div>
+          <div>
+            <div class="exp-company">Amazon</div>
+            <div class="exp-role">Software Development Engineer</div>
+            <ul class="exp-bullets">
+              <li><strong>UNFI Enhancement:</strong> Improved vendor item-store review pages using AWS Lambda, reducing decision-making time from hours to minutes.</li>
+              <li><strong>WRAP Backfills:</strong> Led backfill initiatives in UK, JP, and US — enabling online sales for physical stores, increasing sales by <strong>20%</strong> in initial months.</li>
+              <li><strong>WRAP Migration:</strong> Optimized migration workflows and Lambda configurations, achieving a <strong>30% reduction</strong> in migration time.</li>
+              <li><strong>Guardrails:</strong> Developed workflow rules and validations, resulting in a <strong>60% decrease</strong> in user tickets by automating error handling and data validation.</li>
+              <li><strong>Grocery Listing:</strong> Enhanced the supply chain listing process, cutting user story time from 10 minutes to 4 minutes for over <strong>25 million global users</strong>.</li>
+              <li><strong>Sourcing Grid:</strong> Designed a new API and UI to streamline configuration, simplifying selection from five attributes to one.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- RE IT Services -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Feb 2023 – Jul 2023</div>
+            <div class="exp-location">Atlanta, GA</div>
+          </div>
+          <div>
+            <div class="exp-company">RE IT Services Inc</div>
+            <div class="exp-role">Software Development Engineer</div>
+            <ul class="exp-bullets">
+              <li><strong>Data Pipeline:</strong> Implemented auto-archival of database records, resulting in a <strong>90% improvement</strong> in query performance.</li>
+              <li><strong>API Scaling:</strong> Enhanced APIs for increased load and automated CI/CD tasks using Jenkins and Docker, saving <strong>6 hours</strong> of manual work per task.</li>
+              <li><strong>Data Processing:</strong> Built event-driven data processing solutions using Kafka, standardizing multi-source data across <strong>18 systems</strong> and reducing on-call load by 11 hours/week.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- AWS Intern -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">May 2022 – Aug 2022</div>
+            <div class="exp-location">Metro DC, VA</div>
+          </div>
+          <div>
+            <div class="exp-company">Amazon · AWS</div>
+            <div class="exp-role">SDE Intern</div>
+            <ul class="exp-bullets">
+              <li><strong>AEA Onboarding:</strong> Streamlined the AWS Enterprise Access onboarding process, reducing average onboarding time by <strong>7 hours</strong> per instance.</li>
+              <li><strong>Topos:</strong> Built a full-stack Python console to resolve security issues from network scans, enhancing security for <strong>9,000 Amazon services</strong>.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Darwinbox Senior -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Jun 2018 – Aug 2021</div>
+            <div class="exp-location">Hyderabad, India</div>
+          </div>
+          <div>
+            <div class="exp-company">Darwinbox · Cloud-based HRMS</div>
+            <div class="exp-role">Senior Software Engineer</div>
+            <ul class="exp-bullets">
+              <li><strong>Microservices Migration:</strong> Led migration to microservices using Node.js and Docker, reducing throughput time from 6 minutes to 1 minute.</li>
+              <li><strong>MongoDB Optimization:</strong> Executed optimization strategies saving <strong>$800K</strong> in infrastructure costs.</li>
+              <li><strong>Multi-Payroll Integration:</strong> Created stateless APIs for payroll systems, serving <strong>1 million users</strong> across multiple systems.</li>
+              <li><strong>Payroll Automation:</strong> Reduced manual processing hours from 40 to 12 using Redis and RabbitMQ.</li>
+              <li><strong>Taxation System:</strong> Built a multi-country tax handling framework, attracting <strong>50 new clients</strong>.</li>
+              <li><strong>Recruitment Automation:</strong> Automated hiring pipeline using event emitters, reducing hiring time by <strong>60%</strong>.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Darwinbox Intern -->
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Dec 2017 – Apr 2018</div>
+            <div class="exp-location">Hyderabad, India</div>
+          </div>
+          <div>
+            <div class="exp-company">Darwinbox</div>
+            <div class="exp-role">Intern</div>
+            <ul class="exp-bullets">
+              <li><strong>Chatbot:</strong> Leveraged Wit.ai (Facebook's NLP) to automate tasks for <strong>1 million+ customers</strong>, using Go.</li>
+              <li><strong>OCR Integration:</strong> Integrated OCR into reimbursement workflows, reducing processing time by <strong>90%</strong>.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="section-label">Open Source &amp; Personal</div>
+        <h2 class="section-title">Projects</h2>
+        <h3 class="project-title" id="open-source">Open Source</h3>
+        <div class="projects-grid">
+          <!-- Gumo: open-source entry -->
+          <div class="project-card featured" id="gumo">
+            <div class="project-icon"><i class="fa-brands fa-npm"></i></div>
+            <div class="project-badge">Open Source · npm</div>
+            <div class="project-title">gumo</div>
+            <div class="project-desc"> A web-crawler and scraper for extracting data from families of nested, dynamic web pages. Built with enhancements to assist knowledge-mining applications. Published as an actively maintained public npm package under the MIT License; supports knowledge graph extraction with Elasticsearch and Neo4j. </div>
+            <div class="project-tags"> <span class="tag">Node.js</span> <span class="tag">MongoDB</span> <span class="tag">npm</span> <span class="tag">Web Crawler</span> <span class="tag">MIT</span> </div>
+            <div class="project-links"> <a class="project-link" href="https://www.npmjs.com/package/gumo" rel="noopener noreferrer" target="_blank">gumo on npm <i class="fa-solid fa-arrow-right project-link-icon"></i></a> <a class="pub-link" href="https://www.npmjs.com/package/gumo?activeTab=versions" rel="noopener noreferrer" target="_blank">gumo release history</a> <a class="project-link" href="https://github.com/nvk681/Gumo" rel="noopener noreferrer" target="_blank">gumo source on GitHub <i class="fa-solid fa-arrow-right project-link-icon"></i></a> </div>
+          </div>
+          <!-- NFL Helmet Safety -->
+          <div class="project-card">
+            <div class="project-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+            <div class="project-badge">Research · Computer Vision</div>
+            <div class="project-title">NFL Helmet Safety · Real-Time Detection</div>
+            <div class="project-desc"> Helmet segmentation and labeling for the NFL Health &amp; Safety Kaggle challenge. Research published on arXiv as "Real-Time Multi-Object Detection for Helmet Safety" (May 2022). </div>
+            <div class="project-tags"> <span class="tag">Python</span> <span class="tag">Pandas</span> <span class="tag">NumPy</span> <span class="tag">Detectron</span> <span class="tag">Deep Learning</span> </div>
+            <div class="project-links"> <a class="project-link" href="#paper-helmet">Helmet safety publication <i class="fa-solid fa-arrow-right project-link-icon"></i></a> <a class="project-link" href="https://github.com/Mrinal18/NFL_Kaggle" rel="noopener noreferrer" target="_blank">GitHub <i class="fa-solid fa-arrow-right project-link-icon"></i></a> </div>
+          </div>
+        </div>
+      </section>
+      <!-- PUBLICATIONS -->
+      <section id="publications">
+        <div class="section-label">Academic Research</div>
+        <h2 class="section-title">Research Publications</h2>
+        <div class="pub-list">
+          <div class="pub-card">
+            <span class="pub-badge ieee">IEEE</span>
+            <div>
+              <div class="pub-title" id="paper-microservices">"Balancing Microservices and Monolithic Architectures"</div>
+              <div class="pub-meta">Nuthalapati, V.K.C. · IEEE Computer Society Santa Clara Valley Chapter · <em>Feedforward</em>, Vol. 5, No. 3, pp. 28–33 · July 4, 2026 (arXiv)</div>
+              <div class="pub-meta">Practical trade-off analysis for choosing between microservices and monolithic architectures across team size, operational maturity, and scaling needs.</div>
+              <a class="pub-link" href="https://arxiv.org/abs/2607.03898" rel="noopener noreferrer" target="_blank">Balancing Microservices and Monolithic Architectures on arXiv ↗</a>
+              <br/>
+              <a class="pub-link" href="https://www.researchgate.net/publication/408317204_Article_Type_Case_Study_Balancing_Microservices_and_Monolithic_Architectures" rel="noopener noreferrer" target="_blank">ResearchGate record</a>
+              ·
+              <a class="pub-link" href="https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202602218608239358" rel="noopener noreferrer" target="_blank">J-GLOBAL (JST), ID 202602218608239358</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">arXiv</span>
+            <div>
+              <div class="pub-title" id="paper-helmet">"Real-Time Multi-Object Detection for Helmet Safety"</div>
+              <div class="pub-meta">Nuthalapati, V.K.C. et al. · arXiv · May 19, 2022</div>
+              <div class="pub-meta">Developed real-time helmet identification using deep learning for player safety in NFL environments. Covers multi-object detection under motion blur and occlusion.</div>
+              <a class="pub-link" href="https://arxiv.org/abs/2205.09878" rel="noopener noreferrer" target="_blank">arxiv.org/abs/2205.09878 ↗</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge ieee">IEEE</span>
+            <div>
+              <div class="pub-title" id="paper-matrix">"Matrix Hashing with Two Level of Collision Resolution"</div>
+              <div class="pub-meta">Venkata Krishna Chaitanya Nuthalapati, Anand Agrawal and Sriram Bhyravarapu · IEEE Confluence 2018 · p. 526 · 8th International Conference on Cloud Computing, Data Science &amp; Engineering</div>
+              <div class="pub-meta">Proposed a novel hashing technique improving collision management efficiency for scalable lookup structures.</div>
+              <a class="pub-link" href="https://doi.org/10.1109/CONFLUENCE.2018.8442607" rel="noopener noreferrer" target="_blank">DOI: 10.1109/CONFLUENCE.2018.8442607</a>
+              ·
+              <a class="pub-link" href="https://www.proceedings.com/content/040/040480webtoc.pdf" rel="noopener noreferrer" target="_blank">Confluence proceedings table of contents</a>
+              <br/>
+              <a class="pub-link" href="https://ieeexplore.ieee.org/abstract/document/8442607" rel="noopener noreferrer" target="_blank">ieeexplore.ieee.org/abstract/document/8442607 ↗</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge springer">Springer</span>
+            <div>
+              <div class="pub-title" id="paper-installation">"Installation Automation Tool"</div>
+              <div class="pub-meta">Nuthalapati, V.K.C. et al. · ICAIECES-2017 &amp; ICPCIT-2017 · Springer · 2018</div>
+              <div class="pub-meta">Automated software installation and configuration workflows for enterprise environments.</div>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">Zenodo</span>
+            <div>
+              <div class="pub-title" id="paper-cash">Securing Cash Transactions Any Where Using Artificial Intelligence</div>
+              <div class="pub-meta">Zenodo · 2017</div>
+              <div class="pub-meta">Research on applying artificial intelligence to cash transaction security.</div>
+              <a class="pub-link" href="https://doi.org/10.5281/zenodo.20237265" rel="noopener noreferrer" target="_blank">DOI: 10.5281/zenodo.20237265</a>
+              ·
+              <a class="pub-link" href="https://www.researchgate.net/publication/404947893_SECURING_CASH_TRANSACTIONS_ANY_WHERE_USING_ARTIFICIAL_INTELLIGENCE" rel="noopener noreferrer" target="_blank">ResearchGate record</a>
+            </div>
+          </div>
+        </div>
+        <p class="pub-meta">See <a class="pub-link" href="#profiles">academic and professional profiles</a>.</p>
+      </section>
+      <!-- ARTICLES -->
+      <section id="articles">
+        <div class="section-label">Writing</div>
+        <h2 class="section-title">Published Articles</h2>
+        <div class="pub-list">
+          <div class="article-card">
+            <div class="article-icon"><i class="fa-brands fa-hashnode"></i></div>
+            <div>
+              <div class="article-source">HackerNoon</div>
+              <div class="article-title" id="article-matrix">Matrix Hashing: Two-Level Collision Resolution for Scalable Lookups</div>
+              <a class="article-link" href="https://hackernoon.com/matrix-hashing-two-level-collision-resolution-for-scalable-lookups" rel="noopener noreferrer" target="_blank"> hackernoon.com ↗ </a>
+            </div>
+          </div>
+          <div class="article-card">
+            <div class="article-icon"><i class="fa-brands fa-hashnode"></i></div>
+            <div>
+              <div class="article-source">HackerNoon</div>
+              <div class="article-title" id="article-helmet">Ensuring Trustworthy AI in Sports Safety: A Case Study of Real-Time Helmet Collision Detection</div>
+              <a class="article-link" href="https://hackernoon.com/ensuring-trustworthy-ai-in-sports-safety-a-case-study-of-real-time-helmet-collision-detection" rel="noopener noreferrer" target="_blank"> hackernoon.com ↗ </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="section-label">Technical</div>
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <div class="skill-group-title">Languages</div>
+            <div class="skill-pills"> <span class="pill">Java</span><span class="pill">Python</span><span class="pill">Go</span> <span class="pill">JavaScript</span><span class="pill">TypeScript</span> <span class="pill">C++</span><span class="pill">SQL</span><span class="pill">NoSQL</span> </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Distributed Systems</div>
+            <div class="skill-pills"> <span class="pill">Microservices</span><span class="pill">Kafka</span> <span class="pill">RabbitMQ</span><span class="pill">REST</span> <span class="pill">gRPC</span><span class="pill">Event-driven</span> <span class="pill">Multithreading</span> </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Cloud &amp; DevOps</div>
+            <div class="skill-pills"> <span class="pill">AWS Lambda</span><span class="pill">EC2</span><span class="pill">S3</span> <span class="pill">RDS</span><span class="pill">Kubernetes</span> <span class="pill">Docker</span><span class="pill">Jenkins</span> <span class="pill">GCP</span><span class="pill">Azure</span><span class="pill">CI/CD</span> </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Databases</div>
+            <div class="skill-pills"> <span class="pill">MongoDB</span><span class="pill">Cassandra</span> <span class="pill">DynamoDB</span><span class="pill">PostgreSQL</span> <span class="pill">Redis</span><span class="pill">ElastiCache</span> </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Frameworks</div>
+            <div class="skill-pills"> <span class="pill">Spring Boot</span><span class="pill">Node.js</span> <span class="pill">Express</span><span class="pill">React</span> <span class="pill">Angular</span><span class="pill">TDD</span> </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Tools &amp; Observability</div>
+            <div class="skill-pills"> <span class="pill">Git</span><span class="pill">Linux</span> <span class="pill">Prometheus</span><span class="pill">Grafana</span> <span class="pill">CloudFormation</span><span class="pill">JProfiler</span> </div>
+          </div>
+        </div>
+      </section>
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="section-label">Academic Background</div>
+        <h2 class="section-title">Education</h2>
+        <div class="edu-item">
+          <div class="edu-period">Aug 2021 – Dec 2022</div>
+          <div>
+            <div class="edu-school">Georgia State University</div>
+            <div class="edu-degree">Master of Science in Computer Science</div>
+            <span class="edu-note">Full Scholarship + Graduate Teaching Assistantship</span>
+            <div class="edu-gpa">GPA: 3.96 / 4.0 · Atlanta, Georgia</div>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-period">Aug 2014 – Aug 2018</div>
+          <div>
+            <div class="edu-school">Vignan University</div>
+            <div class="edu-degree">Bachelor of Technology in Computer Science</div>
+            <span class="edu-note">Merit Scholarship</span>
+            <div class="edu-gpa">GPA: 3.65 / 4.0 · Guntur, AP, India</div>
+          </div>
+        </div>
+      </section>
+      <!-- AWARDS -->
+      <section id="awards">
+        <div class="section-label">Recognition</div>
+        <h2 class="section-title">Awards</h2>
+        <div class="award-list">
+          <div class="award-item">
+            <i class="fa-solid fa-trophy award-icon"></i>
+            <div class="award-text">Academic Excellence Award based on performance in Bachelor's 1st year (I &amp; II Semester).</div>
+          </div>
+          <div class="award-item">
+            <i class="fa-solid fa-medal award-icon"></i>
+            <div class="award-text">🥇 <strong>1st Place</strong> — CODE CACHE event at International Tech Extravaganza "Srujankura" · Jan 26–28, 2017.</div>
+          </div>
+          <div class="award-item">
+            <i class="fa-solid fa-heart award-icon"></i>
+            <div class="award-text">Regular volunteer and donor for <strong>Food4Lives</strong> — community food assistance organization.</div>
+          </div>
+        </div>
+      </section>
+      <!-- VOLUNTEERING -->
+      <section id="volunteering">
+        <div class="section-label">Community</div>
+        <h2 class="section-title">Volunteering</h2>
+        <p class="pub-meta">Venkata Krishna Chaitanya Nuthalapati volunteers as a programming instructor with Mentors Without Borders and is a regular volunteer and donor for Food4Lives, a community food assistance organization.</p>
+        <div class="exp-item">
+          <div class="exp-meta">
+            <div class="exp-period">Feb 2026 – Present</div>
+            <div class="exp-location">Remote · Ghana</div>
+          </div>
+          <div>
+            <div class="exp-company">Mentors Without Borders · Education</div>
+            <div class="exp-role">Instructor</div>
+            <ul class="exp-bullets">
+              <li>As part of a global initiative to bridge the digital divide, I mentor junior high school students in Ghana remotely — teaching web development and programming basics through structured weekly sessions on Zoom.</li>
+              <li>Every lesson is an opportunity to spark curiosity and open doors for the next generation of developers.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- MEDIA & PRESS -->
+      <section id="media">
+        <div class="section-label">Research &amp; Community</div>
+        <h2 class="section-title">Media &amp; Press</h2>
+        <div class="pub-list">
+          <div class="pub-card">
+            <span class="pub-badge arxiv">Press</span>
+            <div>
+              <div class="pub-title">What It Means to Maintain Open-Source Infrastructure in an Era of Rapid Change</div>
+              <div class="pub-meta">The American Reporter · September 29, 2026</div>
+              <div class="pub-meta">Coverage of maintaining open-source infrastructure.</div>
+              <a class="pub-link" href="https://www.theamericanreporter.com/2026/09/29/what-it-means-to-maintain-open-source-infrastructure-in-an-era-of-rapid-change/" rel="noopener noreferrer" target="_blank">View The American Reporter coverage</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">Press</span>
+            <div>
+              <div class="pub-title">How Modern HR and Financial Platforms Are Preventing Costly System Failures</div>
+              <div class="pub-meta">Fox Interviewer</div>
+              <div class="pub-meta">Coverage of reliability in HR and financial platforms.</div>
+              <a class="pub-link" href="https://foxinterviewer.com/technology/how-modern-hr-and-financial-platforms-are-preventing-costly-system-failures/" rel="noopener noreferrer" target="_blank">View Fox Interviewer coverage</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">Instagram</span>
+            <div>
+              <div class="pub-title">Instagram reel</div>
+              <div class="pub-meta">Instagram</div>
+              <div class="pub-meta">Social media reel.</div>
+              <a class="pub-link" href="https://www.instagram.com/reel/DbT_E6rO_Mg/" rel="noopener noreferrer" target="_blank">View Instagram coverage</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">Instagram</span>
+            <div>
+              <div class="pub-title">Instagram post</div>
+              <div class="pub-meta">Instagram</div>
+              <div class="pub-meta">Social media post.</div>
+              <a class="pub-link" href="https://www.instagram.com/p/DbV87ATjntM/" rel="noopener noreferrer" target="_blank">View Instagram coverage</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">Social</span>
+            <div>
+              <div class="pub-title">xRaised: software engineering and tech leadership</div>
+              <div class="pub-meta">xRaised · LinkedIn</div>
+              <div class="pub-meta">Public post tagged software engineering and tech leadership.</div>
+              <a class="pub-link" href="https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techleadership-ugcPost-7487628203725873152-Ys_9" rel="noopener noreferrer" target="_blank">View xRaised · LinkedIn coverage</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">Social</span>
+            <div>
+              <div class="pub-title">xRaised: software engineering and tech innovation</div>
+              <div class="pub-meta">xRaised · LinkedIn</div>
+              <div class="pub-meta">Public post tagged software engineering and tech innovation.</div>
+              <a class="pub-link" href="https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techinnovation-activity-7487904544601833472-4Cjc" rel="noopener noreferrer" target="_blank">View xRaised · LinkedIn coverage</a>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">LinkedIn</span>
+            <div>
+              <div class="pub-title">Public LinkedIn post</div>
+              <div class="pub-meta">LinkedIn</div>
+              <div class="pub-meta">Public post shared by NVK Chaitanya.</div>
+              <a class="pub-link" href="https://www.linkedin.com/posts/nvk-chaitanya_check-out-this-amazing-work-by-my-friend-activity-7316607240055005185-yHnl" rel="noopener noreferrer" target="_blank">View LinkedIn coverage</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- PEER REVIEW -->
+      <section id="peer-review">
+        <div class="section-label">Research &amp; Community</div>
+        <h2 class="section-title">Peer Review</h2>
+        <div class="pub-list">
+          <div class="pub-card">
+            <span class="pub-badge arxiv">JITCAI</span>
+            <div>
+              <div class="pub-title">JITCAI Review Team</div>
+              <div class="pub-meta">JITCAI</div>
+              <div class="pub-meta">Reviewer listed on the journal review team.</div>
+              <a class="pub-link" href="https://www.jitcai.org/index.php/journal/Review-Team" rel="noopener noreferrer" target="_blank">JITCAI reviewer listing</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- PROFILES -->
+      <section id="profiles">
+        <div class="section-label">Research &amp; Community</div>
+        <h2 class="section-title">Profiles</h2>
+        <div class="pub-list">
+          <div id="profile-scholar">
+            <div class="pub-card">
+              <span class="pub-badge arxiv">Profile</span>
+              <div>
+                <div class="pub-title">Google Scholar profile</div>
+                <div class="pub-meta">Google Scholar</div>
+                <div class="pub-meta">Academic and professional profile of Venkata Krishna Chaitanya Nuthalapati.</div>
+                <a class="pub-link" href="https://scholar.google.com/citations?user=isRuee8AAAAJ&amp;hl=en" rel="noopener noreferrer me" target="_blank">Venkata Krishna Chaitanya Nuthalapati on Google Scholar</a>
+              </div>
+            </div>
+          </div>
+          <div id="profile-orcid">
+            <div class="pub-card">
+              <span class="pub-badge arxiv">ORCID</span>
+              <div>
+                <div class="pub-title">ORCID profile</div>
+                <div class="pub-meta">ORCID</div>
+                <div class="pub-meta">Academic and professional profile of Venkata Krishna Chaitanya Nuthalapati.</div>
+                <a class="pub-link" href="https://orcid.org/0009-0007-5123-042X" rel="noopener noreferrer me" target="_blank">Venkata Krishna Chaitanya Nuthalapati on ORCID</a>
+              </div>
+            </div>
+          </div>
+          <div id="profile-researchgate">
+            <div class="pub-card">
+              <span class="pub-badge arxiv">Profile</span>
+              <div>
+                <div class="pub-title">ResearchGate profile</div>
+                <div class="pub-meta">ResearchGate</div>
+                <div class="pub-meta">Academic and professional profile of Venkata Krishna Chaitanya Nuthalapati.</div>
+                <a class="pub-link" href="https://www.researchgate.net/profile/Venkata-Krishna-Chaitanya-Nuthalapati" rel="noopener noreferrer me" target="_blank">Venkata Krishna Chaitanya Nuthalapati on ResearchGate</a>
+              </div>
+            </div>
+          </div>
+          <div id="profile-academia">
+            <div class="pub-card">
+              <span class="pub-badge arxiv">Profile</span>
+              <div>
+                <div class="pub-title">Academia.edu profile</div>
+                <div class="pub-meta">Academia.edu</div>
+                <div class="pub-meta">Academic and professional profile of Venkata Krishna Chaitanya Nuthalapati.</div>
+                <a class="pub-link" href="https://independent.academia.edu/VenkataKrishnaChaitanyaNuthalapati" rel="noopener noreferrer me" target="_blank">Venkata Krishna Chaitanya Nuthalapati on Academia.edu</a>
+              </div>
+            </div>
+          </div>
+          <div id="profile-linkedin">
+            <div class="pub-card">
+              <span class="pub-badge arxiv">LinkedIn</span>
+              <div>
+                <div class="pub-title">LinkedIn profile</div>
+                <div class="pub-meta">LinkedIn</div>
+                <div class="pub-meta">Academic and professional profile of Venkata Krishna Chaitanya Nuthalapati.</div>
+                <a class="pub-link" href="https://www.linkedin.com/in/nvk-chaitanya" rel="noopener noreferrer me" target="_blank">Venkata Krishna Chaitanya Nuthalapati on LinkedIn</a>
+              </div>
+            </div>
+          </div>
+          <div id="profile-github">
+            <div class="pub-card">
+              <span class="pub-badge arxiv">GitHub</span>
+              <div>
+                <div class="pub-title">GitHub profile</div>
+                <div class="pub-meta">GitHub</div>
+                <div class="pub-meta">Academic and professional profile of Venkata Krishna Chaitanya Nuthalapati.</div>
+                <a class="pub-link" href="https://github.com/nvk681" rel="noopener noreferrer me" target="_blank">Venkata Krishna Chaitanya Nuthalapati on GitHub</a>
+              </div>
+            </div>
+          </div>
+          <div class="pub-card">
+            <span class="pub-badge arxiv">SciSpace</span>
+            <div>
+              <div class="pub-title">SciSpace author record</div>
+              <div class="pub-meta">SciSpace</div>
+              <div class="pub-meta">Author indexing record under Nuthalapati Venkata Krishna Chaitanya.</div>
+              <a class="pub-link" href="https://scispace.com/authors/nuthalapati-venkata-krishna-chaitanya-4vvmu5ml04" rel="noopener noreferrer" target="_blank">SciSpace author record</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- SUPPORTING REFERENCES -->
+      <section id="supporting">
+        <div class="section-label">Research &amp; Community</div>
+        <h2 class="section-title">Supporting References</h2>
+        <div class="pub-list">
+          <div class="pub-card">
+            <span class="pub-badge arxiv">GSU</span>
+            <div>
+              <div class="pub-title">Tsuba: Web security scanner</div>
+              <div class="pub-meta">Georgia State University · Murray Patterson</div>
+              <div class="pub-meta">Project listed in Prof. Murray Patterson’s curriculum vitae.</div>
+              <a class="pub-link" href="https://murraypatterson.github.io/cv.pdf" rel="noopener noreferrer" target="_blank">Murray Patterson CV (PDF)</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer> <span>© 2025 N.V.K. Chaitanya · Atlanta, GA</span> <span>Built with care · <a href="#profile-github">github.com/nvk681</a></span> </footer>
+  </body>
 </html>
