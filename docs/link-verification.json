@@ -1,0 +1,202 @@
+{
+  "checkedOn": "2026-10-06",
+  "method": "curl HEAD followed by GET for non-200 HEAD, following redirects; HTTP 200 does not independently establish page content or identity.",
+  "results": [
+    {
+      "url": "https://nvk681.github.io",
+      "status": "200",
+      "finalUrl": "https://nvk681.github.io/",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.theamericanreporter.com/2026/09/29/what-it-means-to-maintain-open-source-infrastructure-in-an-era-of-rapid-change/",
+      "status": "200",
+      "finalUrl": "https://www.theamericanreporter.com/2026/09/29/what-it-means-to-maintain-open-source-infrastructure-in-an-era-of-rapid-change/",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://foxinterviewer.com/technology/how-modern-hr-and-financial-platforms-are-preventing-costly-system-failures/",
+      "status": "200",
+      "finalUrl": "https://foxinterviewer.com/technology/how-modern-hr-and-financial-platforms-are-preventing-costly-system-failures/",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.instagram.com/reel/DbT_E6rO_Mg/",
+      "status": "200",
+      "finalUrl": "https://www.instagram.com/reel/DbT_E6rO_Mg/",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.instagram.com/p/DbV87ATjntM/",
+      "status": "200",
+      "finalUrl": "https://www.instagram.com/p/DbV87ATjntM/",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techleadership-ugcPost-7487628203725873152-Ys_9",
+      "status": "200",
+      "finalUrl": "https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techleadership-ugcPost-7487628203725873152-Ys_9",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techinnovation-activity-7487904544601833472-4Cjc",
+      "status": "200",
+      "finalUrl": "https://www.linkedin.com/posts/xraised_xraised-softwareengineering-techinnovation-activity-7487904544601833472-4Cjc",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.linkedin.com/posts/nvk-chaitanya_check-out-this-amazing-work-by-my-friend-activity-7316607240055005185-yHnl",
+      "status": "200",
+      "finalUrl": "https://www.linkedin.com/posts/nvk-chaitanya_check-out-this-amazing-work-by-my-friend-activity-7316607240055005185-yHnl",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.jitcai.org/index.php/journal/Review-Team#:~:text=Venkata%20Krishna%20Chaitanya%20Nuthalapati",
+      "status": "200",
+      "finalUrl": "https://www.jitcai.org/index.php/journal/Review-Team#:~:text=Venkata%20Krishna%20Chaitanya%20Nuthalapati",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.03898",
+      "status": "200",
+      "finalUrl": "https://arxiv.org/abs/2607.03898",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.researchgate.net/publication/408317204_Article_Type_Case_Study_Balancing_Microservices_and_Monolithic_Architectures",
+      "status": "403",
+      "finalUrl": "https://www.researchgate.net/publication/408317204_Article_Type_Case_Study_Balancing_Microservices_and_Monolithic_Architectures",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202602218608239358",
+      "status": "503",
+      "finalUrl": "https://jglobal.jst.go.jp/en/detail?JGLOBAL_ID=202602218608239358",
+      "result": "non-200 response",
+      "error": ""
+    },
+    {
+      "url": "https://doi.org/10.1109/CONFLUENCE.2018.8442607",
+      "status": "202",
+      "finalUrl": "https://ieeexplore.ieee.org/document/8442607/",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://www.proceedings.com/content/040/040480webtoc.pdf",
+      "status": "200",
+      "finalUrl": "https://www.proceedings.com/content/040/040480webtoc.pdf",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://scispace.com/authors/nuthalapati-venkata-krishna-chaitanya-4vvmu5ml04",
+      "status": "403",
+      "finalUrl": "https://scispace.com/authors/nuthalapati-venkata-krishna-chaitanya-4vvmu5ml04",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://doi.org/10.5281/zenodo.20237265",
+      "status": "200",
+      "finalUrl": "https://zenodo.org/records/20237265",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.researchgate.net/publication/404947893_SECURING_CASH_TRANSACTIONS_ANY_WHERE_USING_ARTIFICIAL_INTELLIGENCE",
+      "status": "403",
+      "finalUrl": "https://www.researchgate.net/publication/404947893_SECURING_CASH_TRANSACTIONS_ANY_WHERE_USING_ARTIFICIAL_INTELLIGENCE",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en",
+      "status": "200",
+      "finalUrl": "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://orcid.org/0009-0007-5123-042X",
+      "status": "200",
+      "finalUrl": "https://orcid.org/0009-0007-5123-042X",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.researchgate.net/profile/Venkata-Krishna-Chaitanya-Nuthalapati",
+      "status": "403",
+      "finalUrl": "https://www.researchgate.net/profile/Venkata-Krishna-Chaitanya-Nuthalapati",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://independent.academia.edu/VenkataKrishnaChaitanyaNuthalapati",
+      "status": "403",
+      "finalUrl": "https://independent.academia.edu/VenkataKrishnaChaitanyaNuthalapati",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://www.linkedin.com/in/nvk-chaitanya",
+      "status": "999",
+      "finalUrl": "https://www.linkedin.com/in/nvk-chaitanya",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://github.com/nvk681",
+      "status": "200",
+      "finalUrl": "https://github.com/nvk681",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://www.npmjs.com/package/gumo",
+      "status": "403",
+      "finalUrl": "https://www.npmjs.com/package/gumo",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://www.npmjs.com/package/gumo?activeTab=versions",
+      "status": "403",
+      "finalUrl": "https://www.npmjs.com/package/gumo?activeTab=versions",
+      "result": "unverifiable by script",
+      "error": ""
+    },
+    {
+      "url": "https://github.com/nvk681/Gumo",
+      "status": "200",
+      "finalUrl": "https://github.com/nvk681/Gumo",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://murraypatterson.github.io/cv.pdf",
+      "status": "200",
+      "finalUrl": "https://murraypatterson.github.io/cv.pdf",
+      "result": "verified",
+      "error": ""
+    },
+    {
+      "url": "https://nvk681.github.io/#person",
+      "status": "200",
+      "finalUrl": "https://nvk681.github.io/#person",
+      "result": "verified",
+      "error": ""
+    }
+  ]
+}

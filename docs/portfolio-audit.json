@@ -1,0 +1,212 @@
+{
+  "date": "2026-10-06",
+  "pages": [
+    "index.html"
+  ],
+  "metadata": [
+    "charset",
+    "viewport",
+    "title",
+    "description",
+    "favicon"
+  ],
+  "links": {
+    "assets/img/favicon.ico": [
+      "assets/img/favicon.ico"
+    ],
+    "https://fonts.googleapis.com/css2?family=Syne%3Awght%40400%3B600%3B700%3B800&family=DM+Sans%3Aital%2Cwght%400%2C300%3B0%2C400%3B0%2C500%3B1%2C300&display=swap": [
+      "https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+    ],
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css": [
+      "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    ],
+    "assets/img/nvk.jpg": [
+      "assets/img/nvk.jpg"
+    ],
+    "#about": [
+      "#about"
+    ],
+    "#experience": [
+      "#experience"
+    ],
+    "#projects": [
+      "#projects"
+    ],
+    "#publications": [
+      "#publications"
+    ],
+    "#articles": [
+      "#articles"
+    ],
+    "#skills": [
+      "#skills"
+    ],
+    "#education": [
+      "#education"
+    ],
+    "#awards": [
+      "#awards"
+    ],
+    "#volunteering": [
+      "#volunteering"
+    ],
+    "https://www.linkedin.com/in/nvk-chaitanya": [
+      "https://www.linkedin.com/in/nvk-chaitanya/"
+    ],
+    "https://github.com/nvk681": [
+      "https://github.com/nvk681",
+      "https://github.com/nvk681"
+    ],
+    "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en": [
+      "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en",
+      "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en"
+    ],
+    "https://www.npmjs.com/package/gumo": [
+      "https://www.npmjs.com/package/gumo",
+      "https://www.npmjs.com/package/gumo"
+    ],
+    "mailto:nvk.681@gmail.com": [
+      "mailto:nvk.681@gmail.com",
+      "mailto:nvk.681@gmail.com"
+    ],
+    "tel:+14044905061": [
+      "tel:+14044905061"
+    ],
+    "https://nvk681.github.io": [
+      "https://nvk681.github.io/"
+    ],
+    "N_V_K_Chaitanya_Resume.pdf?v=2026-09": [
+      "N_V_K_Chaitanya_Resume.pdf?v=2026-09"
+    ],
+    "https://github.com/nvk681/Gumo": [
+      "https://github.com/nvk681/Gumo"
+    ],
+    "https://arxiv.org/abs/2205.09878": [
+      "https://arxiv.org/abs/2205.09878",
+      "https://arxiv.org/abs/2205.09878"
+    ],
+    "https://github.com/Mrinal18/NFL_Kaggle": [
+      "https://github.com/Mrinal18/NFL_Kaggle"
+    ],
+    "https://arxiv.org/abs/2607.03898": [
+      "https://arxiv.org/abs/2607.03898"
+    ],
+    "https://ieeexplore.ieee.org/abstract/document/8442607": [
+      "https://ieeexplore.ieee.org/abstract/document/8442607"
+    ],
+    "https://www.researchgate.net/profile/Venkata-Krishna-Chaitanya-Nuthalapati": [
+      "https://www.researchgate.net/profile/Venkata-Krishna-Chaitanya-Nuthalapati"
+    ],
+    "https://independent.academia.edu/VenkataKrishnaChaitanyaNuthalapati": [
+      "https://independent.academia.edu/VenkataKrishnaChaitanyaNuthalapati"
+    ],
+    "https://hackernoon.com/matrix-hashing-two-level-collision-resolution-for-scalable-lookups": [
+      "https://hackernoon.com/matrix-hashing-two-level-collision-resolution-for-scalable-lookups"
+    ],
+    "https://hackernoon.com/ensuring-trustworthy-ai-in-sports-safety-a-case-study-of-real-time-helmet-collision-detection": [
+      "https://hackernoon.com/ensuring-trustworthy-ai-in-sports-safety-a-case-study-of-real-time-helmet-collision-detection"
+    ]
+  },
+  "duplicates": {
+    "https://github.com/nvk681": [
+      "https://github.com/nvk681",
+      "https://github.com/nvk681"
+    ],
+    "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en": [
+      "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en",
+      "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en"
+    ],
+    "https://www.npmjs.com/package/gumo": [
+      "https://www.npmjs.com/package/gumo",
+      "https://www.npmjs.com/package/gumo"
+    ],
+    "mailto:nvk.681@gmail.com": [
+      "mailto:nvk.681@gmail.com",
+      "mailto:nvk.681@gmail.com"
+    ],
+    "https://arxiv.org/abs/2205.09878": [
+      "https://arxiv.org/abs/2205.09878",
+      "https://arxiv.org/abs/2205.09878"
+    ]
+  },
+  "missing": [
+    "7 media links",
+    "JITCAI reviewer listing",
+    "ResearchGate microservices record",
+    "J-GLOBAL record",
+    "IEEE DOI and proceedings",
+    "SciSpace author",
+    "2017 cash transactions DOI and ResearchGate record",
+    "ORCID",
+    "gumo versions",
+    "Tsuba supporting CV"
+  ],
+  "notes": [
+    "Existing CSS and JS are unused legacy Bootstrap assets; current design uses inline CSS and JS.",
+    "No JSON/YAML content, canonical, JSON-LD, sitemap or robots files.",
+    "Resume PDF and image assets retained unchanged."
+  ],
+  "repositoryFiles": {
+    "README.md": {
+      "lines": 2,
+      "urls": []
+    },
+    ".gitignore": {
+      "lines": 1,
+      "urls": []
+    },
+    "css/styles.css": {
+      "lines": 11262,
+      "urls": [
+        "https://startbootstrap.com/theme/resume)",
+        "https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)",
+        "https://getbootstrap.com/)",
+        "https://github.com/twbs/bootstrap/blob/main/LICENSE)",
+        "http://www.w3.org/2000/svg'"
+      ]
+    },
+    "js/scripts.js": {
+      "lines": 34,
+      "urls": [
+        "https://startbootstrap.com/theme/resume)",
+        "https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)"
+      ]
+    },
+    "N_V_K_Chaitanya_Resume.pdf": {
+      "pages": 2,
+      "urls": [
+        "mailto:nvk.681@gmail.com",
+        "https://www.linkedin.com/in/nvk-chaitanya/",
+        "https://github.com/nvk681",
+        "https://www.workday.com/en-us/homepage.html",
+        "https://aws.amazon.com",
+        "https://www.reitservices.com",
+        "https://aws.amazon.com",
+        "https://darwinbox.com/",
+        "https://darwinbox.com/",
+        "https://wit.ai/",
+        "https://www.gsu.edu/",
+        "https://www.vignan.ac.in/",
+        "https://www.npmjs.com/package/gumo",
+        "https://github.com/Mrinal18/NFL_Kaggle",
+        "https://mentorswithoutborders.net/",
+        "https://arxiv.org/abs/2607.03898",
+        "https://arxiv.org/abs/2205.09878",
+        "https://doi.org/10.1109/CONFLUENCE.2018.8442607",
+        "https://doi.org/10.1007/978-981-10-7868-2_24",
+        "https://scholar.google.com/citations?user=isRuee8AAAAJ&hl=en"
+      ],
+      "notes": "Text reviewed for existing publication metadata; retained unchanged."
+    },
+    "assets": {
+      "files": [
+        "assets/.DS_Store",
+        "assets/img/favicon.ico",
+        "assets/img/.DS_Store",
+        "assets/img/nvk.jpg",
+        "assets/img/3.jpg"
+      ],
+      "notes": "Image and filesystem metadata assets; no content pages."
+    }
+  }
+}
