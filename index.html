@@ -908,12 +908,10 @@
             <div class="exp-company">Workday</div>
             <div class="exp-role">Software Development Engineer</div>
             <ul class="exp-bullets">
-              <li><strong>CI/CD REST API Platform:</strong> Designed and shipped production <strong>/api/v2</strong> endpoints — revision sessions, conflict detection, audit reporting, IA bypass, and push-to-master — extending the UI-only platform to programmatic service integrations, now serving UI and API traffic in production.</li>
-              <li><strong>Service-to-Service Authentication &amp; Security:</strong> Built hashed API-key auth with Quarkus security (service vs. user context separation) plus Narada Bearer support, and drove the threat model through Workday's security review — unblocking API GA with a validated auth layer covering both flows.</li>
-              <li><strong>Push-to-Master &amp; Merge-When-Ready Hardening:</strong> Shipped PCQ client-credential auth, push cancellation, and automatic IA-bypass; standardized typed <strong>422/503</strong> error codes with EMF metrics and CloudWatch dashboards/alarms, replacing generic 500s with named, observable failure modes for on-call.</li>
-              <li><strong>Distributed Tracing Across the Pipeline:</strong> Implemented end-to-end <strong>X-Trace-ID</strong> propagation from Coffeehouse through CRS, Panda, and XORC to GitHub Checks, closing the epic with full cross-service trace correlation and faster root-cause on pipeline failures.</li>
-              <li><strong>Capacity Sizing &amp; Graviton Migration:</strong> Right-sized production ECS and authored the x86→Graviton RDS migration assessment across five service groups, filing per-instance implementation stories with projected cost savings.</li>
-              <li><strong>Async Reliability &amp; Audit Governance:</strong> Added a <strong>10-minute hard timeout</strong> to AuditReportWorkflow and built job-step tracking with an async coordinator pattern — eliminating indefinitely-hung audit jobs and giving operators step-level visibility.</li>
+              <li><strong>CI/CD API Platform:</strong> Developed production REST APIs supporting revision management, conflict detection, audit reporting, and controlled deployment workflows for an internal CI/CD platform.</li>
+              <li><strong>Security &amp; Reliability:</strong> Strengthened service authentication and authorization, separated service and user access contexts, and added cancellation, error handling, and controlled recovery paths for deployment workflows.</li>
+              <li><strong>Observability &amp; Distributed Tracing:</strong> Added monitoring metrics, dashboards, and alerts for service reliability; improved tracing across distributed pipeline components to support incident investigation.</li>
+              <li><strong>Cloud &amp; Async Reliability:</strong> Optimized cloud service resource allocation, evaluated architecture migration considerations, and improved the reliability of asynchronous audit workflows through bounded execution, step-level job tracking, and failure handling.</li>
             </ul>
           </div>
         </div>
@@ -927,12 +925,13 @@
             <div class="exp-company">Amazon</div>
             <div class="exp-role">Software Development Engineer</div>
             <ul class="exp-bullets">
-              <li><strong>UNFI Enhancement:</strong> Improved vendor item-store review pages using AWS Lambda, reducing decision-making time from hours to minutes.</li>
-              <li><strong>WRAP Backfills:</strong> Led backfill initiatives in UK, JP, and US — enabling online sales for physical stores.</li>
-              <li><strong>WRAP Migration:</strong> Optimized migration workflows and Lambda configurations, making migrations <strong>about 30% faster</strong>.</li>
-              <li><strong>Guardrails:</strong> Developed workflow rules and validations, resulting in <strong>about 60% fewer</strong> migration-related tickets by automating error handling and data validation.</li>
-              <li><strong>Grocery Listing:</strong> Enhanced the supply chain listing process, cutting grocery listing time from 10 minutes to <strong>about 4 minutes</strong>.</li>
-              <li><strong>Sourcing Grid:</strong> Designed a new API and UI to streamline configuration, simplifying attribute selection.</li>
+              <li><strong>WRAP Migration:</strong> Automated and optimized the Lambda-based migration framework with built-in validations for retail integrations in the UK, JP, and US, achieving <strong>about a 30% reduction</strong> in migration time.</li>
+              <li><strong>Guardrails:</strong> Developed workflow rules and validations that automated error handling and data validation, resulting in <strong>about 60% fewer</strong> migration-related tickets.</li>
+              <li><strong>Grocery Listing:</strong> Enhanced the listing process for the supply chain, cutting listing operation time from 10 minutes to <strong>about 4 minutes</strong>.</li>
+              <li><strong>Sourcing Grid:</strong> Designed a new API and user interface that simplified sourcing configuration and attribute selection.</li>
+              <li><strong>UNFI Enhancement:</strong> Rebuilt UNFI review and deep dive pages on AWS Lambda, streamlining vendor item-store updates.</li>
+              <li><strong>WRAP Backfills:</strong> Led backfill initiatives in the UK, JP, and US, enabling online sales for physical stores.</li>
+              <li><strong>Risks:</strong> Proactively identified and resolved security and software issues across team-owned services.</li>
             </ul>
           </div>
         </div>
@@ -946,9 +945,9 @@
             <div class="exp-company">RE IT Services Inc</div>
             <div class="exp-role">Software Development Engineer</div>
             <ul class="exp-bullets">
-              <li><strong>Data Pipeline:</strong> Implemented auto-archival of database records, resulting in <strong>about a 90% improvement</strong> in query performance.</li>
-              <li><strong>API Scaling:</strong> Enhanced APIs for increased load and automated CI/CD tasks using Jenkins and Docker, saving <strong>about 6 hours</strong> of manual work per task.</li>
-              <li><strong>Data Processing:</strong> Built event-driven data processing solutions using Kafka, standardizing multi-source data across <strong>18 systems</strong> and reducing on-call load by about 11 hours per week.</li>
+              <li><strong>Data Pipeline:</strong> Implemented auto archival of database records, resulting in <strong>about a 90% improvement</strong> in query performance.</li>
+              <li><strong>API Scaling:</strong> Enhanced APIs to support increased load and automated tasks within the CI/CD pipeline using Jenkins and Docker, saving <strong>about 6 hours</strong> of manual work per task.</li>
+              <li><strong>Data Processing:</strong> Developed event-driven data processing solutions using Kafka to standardize multi-source data across <strong>18 systems</strong>, reducing data discrepancies and cutting on-call workload by about 11 hours per week.</li>
             </ul>
           </div>
         </div>
@@ -962,8 +961,8 @@
             <div class="exp-company">Amazon · AWS</div>
             <div class="exp-role">SDE Intern</div>
             <ul class="exp-bullets">
-              <li><strong>AEA Onboarding:</strong> Streamlined the AWS Enterprise Access onboarding process, reducing average onboarding time per instance.</li>
-              <li><strong>Topos:</strong> Built a full-stack Python console to resolve security issues from network scans, enhancing security for Amazon services.</li>
+              <li><strong>AEA Onboarding:</strong> Collaborated to streamline the AWS Enterprise Access onboarding process, reducing manual onboarding effort.</li>
+              <li><strong>Topos:</strong> Developed a full-stack console using Python to track and address security issues identified by network scans across internal services.</li>
             </ul>
           </div>
         </div>
@@ -977,12 +976,15 @@
             <div class="exp-company">Darwinbox · Cloud-based HRMS</div>
             <div class="exp-role">Senior Software Engineer (promoted during tenure)</div>
             <ul class="exp-bullets">
-              <li><strong>Microservices Migration:</strong> Led migration to microservices using Node.js and Docker, reducing throughput time.</li>
-              <li><strong>MongoDB Optimization:</strong> Executed optimization strategies saving infrastructure costs.</li>
-              <li><strong>Multi-Payroll Integration:</strong> Created stateless APIs for payroll systems, serving users across multiple systems.</li>
-              <li><strong>Payroll Automation:</strong> Reduced manual processing hours using Redis and RabbitMQ.</li>
-              <li><strong>Taxation System:</strong> Built a multi-country tax handling framework, attracting new clients.</li>
-              <li><strong>Recruitment Automation:</strong> Automated hiring pipeline using event emitters, reducing hiring time.</li>
+              <li><strong>Microservices Migration:</strong> Led the rebuild of the workflow engine as a microservices architecture using Node.js and Docker, shortening workflow execution time and enabling business workflows as a service.</li>
+              <li><strong>Dynamic Reporting Framework:</strong> Implemented a PHP-based reporting engine handling large on-demand data requests in a single operation.</li>
+              <li><strong>Payslip Customization:</strong> Developed a flexible framework for payslip customization to support large enterprise clients.</li>
+              <li><strong>MongoDB Optimization:</strong> Executed optimization strategies that reduced MongoDB usage and lowered infrastructure costs.</li>
+              <li><strong>Multi-Payroll Integration:</strong> Created stateless APIs for payroll systems, serving users across multiple payroll systems.</li>
+              <li><strong>Payroll Automation:</strong> Reduced manual payroll processing effort by automating payroll workflows using Redis and RabbitMQ.</li>
+              <li><strong>Bulk Notifications:</strong> Developed Bash scripts for bulk email and notification processing to support large-scale employee communications.</li>
+              <li><strong>Taxation System:</strong> Built a framework for handling multi-country tax systems, supporting the platform’s expansion to clients in new countries.</li>
+              <li><strong>Recruitment Automation:</strong> Constructed a recruitment automation pipeline using event emitters to shorten the hiring cycle.</li>
             </ul>
           </div>
         </div>
@@ -993,11 +995,11 @@
             <div class="exp-location">Hyderabad, India</div>
           </div>
           <div>
-            <div class="exp-company">Darwinbox</div>
+            <div class="exp-company">Darwinbox · Cloud-based HRMS</div>
             <div class="exp-role">Intern – Software Developer</div>
             <ul class="exp-bullets">
-              <li><strong>Chatbot:</strong> Leveraged Wit.ai (Facebook's NLP) to automate tasks for customers, using Go.</li>
-              <li><strong>OCR Integration:</strong> Integrated OCR into reimbursement workflows, reducing processing time.</li>
+              <li><strong>Chatbot:</strong> Leveraged Wit.ai (Facebook NLP tool) to build a chatbot that automated routine HR tasks, streamlining HR workflows using Go.</li>
+              <li><strong>OCR Integration:</strong> Integrated OCR into the reimbursement module, automating data extraction from bills and reducing manual processing.</li>
             </ul>
           </div>
         </div>
