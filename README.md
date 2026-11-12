@@ -1,4 +1,4 @@
-# N.V.K. Chaitanya — Portfolio
+# Venkata Krishna Chaitanya Nuthalapati — Portfolio
 
 Static portfolio hosted on GitHub Pages at https://nvk681.github.io/.
 
